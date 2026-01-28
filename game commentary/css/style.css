@@ -407,30 +407,66 @@ footer .date {
     margin-bottom: 6px;
 }
 
-@media only screen and (max-width: 480px) {
-    .subhero .catch-copy {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translateX(-50%);
-        font-family: "Mochiy Pop P One", sans-serif;
-        font-weight: 200;
-        font-style: normal;
-        font-size: 17px;
-        color: #000000;
-    }
-}
+/* --- 前半の基本設定はそのまま活かします --- */
 
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+/* 中略（既存のコードをそのまま使用） */
+
+/* --- 【ここから修正】スマホ・タブレット向け最適化 --- */
+@media screen and (max-width: 768px) {
+    /* 1. 全体の余白調整 */
+    main {
+        padding: 40px 15px; /* 100pxから大幅カットして中身を広く */
+    }
+
+    footer {
+        padding-bottom: 60px;
+    }
+
+    /* 2. ヘッダー内の検索ボックスとはみ出し防止 */
+    #header {
+        width: 95%; /* 画面端ギリギリまで使う */
+    }
+
+    #headerSearchText {
+        width: 120px; /* スマホで文字入力欄が突き抜けないように調整 */
+    }
+
+    #headerImage {
+        left: 140px; /* 検索アイコンの位置を調整 */
+    }
+
+    /* 3. キャッチコピー（subhero）の文字サイズ */
+    .subhero {
+        height: 200px; /* 高さをスマホ向けにコンパクトに */
+    }
+
     .subhero .catch-copy {
-        position: absolute;
+        font-size: 20px; /* 34pxから20pxに。一行に収まりやすくします */
+        width: 90%;
+        text-align: center;
         top: 50%;
-        left: 50%;
-        transform: translateX(-50%);
-        font-family: "Mochiy Pop P One", sans-serif;
-        font-weight: 200;
-        font-style: normal;
-        font-size: 17px;
-        color: #000000;
+        transform: translate(-50%, -50%); /* 完全に中央寄せ */
+    }
+
+    /* 4. メニュー（nav）の幅 */
+    nav {
+        width: 70%; /* スマホだと80%は少し広いので、操作性を考えて調整 */
+    }
+
+    nav ul li a {
+        padding: 15px 20px; /* タップしやすい大きさは維持しつつスリムに */
+    }
+
+    /* 5. フッターのリスト */
+    footer li {
+        padding: 12px 16px;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    /* 6. 日付（footer .date）の位置調整 */
+    footer .date {
+        font-size: 18px; /* x-largeだとスマホには少し大きいので調整 */
+        top: 90%;
     }
 }
