@@ -359,47 +359,76 @@ main .date {
     margin-bottom: 6px;
 }
 
-/* --- ここから書き換え --- */
+/* --- style.css の一番下にある @media 部分をこれに差し替えてください --- */
+
 @media screen and (max-width: 768px) {
-    /* 全体の余白が広すぎるのを調整 */
+    /* 1. 全体の余白：コンテンツを広く見せる */
     main, footer {
-        padding: 40px 15px; /* 元の100pxから40pxに減らしてスッキリ */
+        padding: 40px 15px; /* 100pxから大幅カット */
     }
 
-    /* ヒーロー画像がスマホだとデカすぎるのを修正 */
+    /* 2. ヘッダーと検索ボックスの「ずれ」と「はみ出し」を修正 */
+    #header {
+        width: 95%; /* 画面幅いっぱいを活用 */
+    }
+
+    #box {
+        top: 0; /* 縦のズレを解消 */
+        height: 35px;
+        margin-right: 5px;
+    }
+
+    #headerSearchText {
+        width: 130px; /* 180pxから短縮してロゴとの衝突を防止 */
+        height: 30px;
+        line-height: 30px;
+        font-size: 14px;
+        padding-left: 8px;
+    }
+
+    /* 虫眼鏡アイコンを右端にピタッと固定 */
+    #headerImage {
+        width: 18px;
+        top: 50%;
+        left: auto; /* PC用の左固定(180px)を解除 */
+        right: 8px; /* 入力欄の右端から8pxの位置に固定 */
+        transform: translateY(-50%);
+    }
+
+    /* 3. ヒーロー画像とタイトルのサイズ調整 */
     #hero {
-        height: 250px; /* 高さをスマホに合わせる */
-        margin-bottom: 40px; /* 下の余白も半分以下に */
-        border-radius: 15px; /* 角丸も少し小さく */
+        height: 250px; /* 高さをスマホ向けにコンパクト化 */
+        margin-bottom: 40px;
+        border-radius: 15px;
     }
 
-    /* 「ナナナの広場」という文字サイズをスマホに最適化 */
     .hero_inner p {
-        font-size: 50px; /* PCの100pxから半分に */
+        font-size: 44px; /* 100pxから調整して一行に収まりやすく */
         font-weight: 700;
     }
 
-    /* サブヒーロー（ゲーム実況画面など）の調整 */
+    /* 4. サブコピーの完全中央配置 */
     .subhero {
-        height: 180px; /* 高さを抑える */
+        height: 180px;
     }
 
     .subhero .catch-copy {
-        font-size: 18px; /* 文字がはみ出さないサイズに */
+        font-size: 18px; /* 文字溢れ防止 */
         width: 90%;
         text-align: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* 上下左右ど真ん中へ */
     }
 
-    /* 記事一覧などの見出し */
+    /* 5. 見出しとフッターの調整 */
     main h2 {
         font-size: 22px;
     }
 
-    /* 自分の住所などを書いたフッター周り */
     small {
-        flex-direction: column; /* 横並びが厳しいなら縦に */
+        flex-direction: column; /* 縦並びにして情報の重なりを防止 */
         height: auto;
         padding: 10px;
     }
 }
-/* --- ここまで --- */
