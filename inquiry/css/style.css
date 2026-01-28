@@ -296,3 +296,56 @@ main input[type=submit] {
     letter-spacing: 6px;
     border-radius: 6px;
 }
+
+/* --- 既存の基本設定は維持 --- */
+
+/* --- 【ここから修正】お問い合わせ・リストのスマホ最適化 --- */
+@media screen and (max-width: 768px) {
+    /* 1. コンテンツ全体の余白をスマホ向けに */
+    main, footer {
+        padding: 40px 15px; /* 100pxだと余白が広すぎるので40pxに */
+    }
+
+    main {
+        margin-bottom: 60px; /* 下の余白も適度に調整 */
+    }
+
+    /* 2. 見出しのサイズ */
+    main h2 {
+        font-size: 22px; /* スマホで見やすい大きさに */
+    }
+
+    /* 3. フォーム（入力欄）の調整 */
+    main form {
+        width: 100%; /* 画面幅いっぱいに使う */
+    }
+
+    main input, 
+    main textarea {
+        padding: 10px; /* 内側の余白を少し詰める */
+        margin-bottom: 20px;
+    }
+
+    main input[type=submit] {
+        padding: 15px 10px; /* 送信ボタンを少しスリムに */
+        letter-spacing: 2px; /* 文字の間隔をスマホ向けに調整 */
+    }
+
+    /* 4. アコーディオンリストの調整 */
+    .arow-list::after {
+        left: 90%; /* 矢印の位置が文字に被らないよう端へ寄せる */
+    }
+
+    #child-lists li a {
+        padding: 15px 20px; /* タップ領域は確保しつつスリムに */
+    }
+
+    /* 5. ヘッダー周りの微調整（はみ出し防止） */
+    #header {
+        width: 95%;
+    }
+    
+    #headerSearchText {
+        width: 100px; /* 検索窓が右に突き抜けるのを防ぐ */
+    }
+}
