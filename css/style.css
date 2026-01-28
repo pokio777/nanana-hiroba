@@ -359,66 +359,47 @@ main .date {
     margin-bottom: 6px;
 }
 
-@media only screen and (max-width: 480px) {
-    #hero {
-        background-image: url(../images/grassland-dot3.jpg);
-        background-position: center;
-        background-size: cover;
-        height: 220px;
-        border-radius: 30px;
-        display: flex;
-        align-items: center;
-        margin-bottom: 90px;
-        overflow: hidden;
-        position: relative;
+/* --- ここから書き換え --- */
+@media screen and (max-width: 768px) {
+    /* 全体の余白が広すぎるのを調整 */
+    main, footer {
+        padding: 40px 15px; /* 元の100pxから40pxに減らしてスッキリ */
     }
 
+    /* ヒーロー画像がスマホだとデカすぎるのを修正 */
+    #hero {
+        height: 250px; /* 高さをスマホに合わせる */
+        margin-bottom: 40px; /* 下の余白も半分以下に */
+        border-radius: 15px; /* 角丸も少し小さく */
+    }
+
+    /* 「ナナナの広場」という文字サイズをスマホに最適化 */
     .hero_inner p {
-        font-size: 50px;
-        font-weight: 350;
+        font-size: 50px; /* PCの100pxから半分に */
+        font-weight: 700;
+    }
+
+    /* サブヒーロー（ゲーム実況画面など）の調整 */
+    .subhero {
+        height: 180px; /* 高さを抑える */
     }
 
     .subhero .catch-copy {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translateX(-50%);
-        font-family: "Mochiy Pop P One", sans-serif;
-        font-weight: 200;
-        font-style: normal;
-        font-size: 17px;
-        color: #000000;
+        font-size: 18px; /* 文字がはみ出さないサイズに */
+        width: 90%;
+        text-align: center;
+    }
+
+    /* 記事一覧などの見出し */
+    main h2 {
+        font-size: 22px;
+    }
+
+    /* 自分の住所などを書いたフッター周り */
+    small {
+        flex-direction: column; /* 横並びが厳しいなら縦に */
+        height: auto;
+        padding: 10px;
     }
 }
-
-@media only screen and (min-width: 481px) and (max-width: 768px) {
-    #hero {
-        background-image: url(../images/grassland-dot3.jpg);
-        background-position: center;
-        background-size: cover;
-        height: 220px;
-        border-radius: 30px;
-        display: flex;
-        align-items: center;
-        margin-bottom: 90px;
-        overflow: hidden;
-        position: relative;
-    }
-
-    .hero_inner p {
-        font-size: 50px;
-        font-weight: 350;
-    }
-
-    .subhero .catch-copy {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translateX(-50%);
-        font-family: "Mochiy Pop P One", sans-serif;
-        font-weight: 200;
-        font-style: normal;
-        font-size: 17px;
-        color: #000000;
-    }
-}
+/* --- ここまで --- */
