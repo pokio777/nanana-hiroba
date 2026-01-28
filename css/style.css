@@ -360,45 +360,48 @@ main .date {
 }
 
 @media screen and (max-width: 768px) {
-    /* 1. ヘッダー全体の高さを安定させる */
+    /* 1. 全体の余白調整 */
+    main, footer {
+        padding: 40px 15px;
+    }
+
+    /* 2. ヘッダーと検索ボックスの配置 */
     #header {
         width: 100%;
         padding: 0 15px;
-        position: relative; /* 子要素の基準にする */
+        position: relative;
     }
 
-    /* 2. 検索ボックスをメニューから「独立」させてロゴの横に配置 */
-    /* navの中にあっても、強制的にヘッダーの右側に固定します */
     #box {
         position: absolute;
-        right: 60px; /* ハンバーガーメニューの左隣に配置 */
-        top: 50%;
+        right: 60px; /* ハンバーガーの左 */
+        top: 65%;    /* 以前のように少し下にずらすため、50%から65%に変更 */
         transform: translateY(-50%);
-        height: 32px;
-        z-index: 5; /* メニューより手前、でもハンバーガーより後ろ */
+        height: 36px; /* 高さを少し出す */
+        z-index: 5;
     }
 
     #headerSearchText {
-        width: 110px; /* スマホ画面でロゴとぶつからない絶妙なサイズ */
-        height: 32px;
+        width: 115px;
+        height: 36px; /* 高さをしっかり確保して文字消えを防止 */
         background: #fff;
         border-radius: 5px;
-        padding-left: 8px;
-        padding-right: 30px; /* アイコン用のスペース */
-        font-size: 12px;
+        padding: 0 30px 0 10px; /* 上下のpaddingを0にして、高さ(height)で中央に寄せる */
+        font-size: 13px; /* 少し小さくして枠内に収める */
+        line-height: 36px; /* 文字が枠の上下中央に来るように指定 */
     }
 
-    /* 3. 虫眼鏡アイコンを入力欄の右端に固定 */
+    /* 虫眼鏡アイコンの位置調整 */
     #headerImage {
         width: 18px;
         position: absolute;
         right: 8px;
         top: 50%;
-        left: auto; /* 固定値をリセット */
+        left: auto;
         transform: translateY(-50%);
     }
 
-    /* 4. ハンバーガーメニューの位置を固定 */
+    /* 3. ハンバーガーメニューの位置調整 */
     #hmb {
         position: absolute;
         right: 15px;
@@ -406,17 +409,19 @@ main .date {
         transform: translateY(-50%);
     }
 
-    /* 5. ヒーローエリアと文字の調整 */
+    /* 4. ヒーローエリア（隙間を作るためにmarginを調整） */
     #hero {
         height: 200px;
-        margin-top: 20px;
+        margin-top: 35px; /* ここを増やすことで、ヘッダーとの間に隙間ができます */
+        margin-bottom: 40px;
+        border-radius: 15px;
     }
 
     .hero_inner p {
-        font-size: 32px; /* スマホでも確実に一行に収める */
+        font-size: 32px;
     }
 
-    /* 6. キャッチコピーの完全中央配置 */
+    /* 5. サブヒーローの調整 */
     .subhero .catch-copy {
         font-size: 16px;
         width: 80%;
