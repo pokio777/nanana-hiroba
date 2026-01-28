@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ナナナの広場^_^</title>
+
+  <!-- リセットCSS（Destyle.css）-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.2/destyle.css">
+
+  <!-- CSS読込み -->
+  <link rel="stylesheet" href="./css/style.css" />
+
+  <!-- Google font-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  　
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  　
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  <header id="header">
+    <a href="../../index.html" class="logo pop">ナナナの広場^_^</a>
+    <div id="hmb">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <ul>
+        <form action="#" method="post">
+          <div id="box">
+            <input type="text" name="smp_text" placeholder="キーワードを入力" id="headerSearchText">
+            <input type="image" name="smp_name" src="images/download.png" alt="検索" id="headerImage">
+          </div>
+        </form>
+        <li><a href="../../index.html"><img src="images/icons8-ホーム-24.png"> ホーム</a></li>
+        <li>
+          <div class="list-item">
+            <div class="arow-list">
+              <label for="product-list">
+                <img src="images/icons8-psコントローラー-24.png"> ゲーム解説
+              </label>
+            </div>
+            <input type="checkbox" id="product-list" />
+            <ul id="child-lists">
+              <li class="child-link"><a href="../index.html" class="child-menu">ブロスタ</a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="../../inquiry/index.html">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h2>シェリー</h2>
+    <hr>
+    <div class="toc-005">
+      <div>
+        目次
+      </div>
+      <ol>
+        <li>
+          <a href="#character">キャラ別解説</a>
+          <ol>
+            <li><a href="">見出し1-1</a></li>
+            <li><a href="">見出し1-2</a></li>
+          </ol>
+        </li>
+        <li>
+          <a href="">見出し2</a>
+          <ol>
+            <li><a href="">見出し2-1</a></li>
+            <li><a href="">見出し2-2</a></li>
+          </ol>
+        </li>
+      </ol>
+    </div>
+  </main>
+  <footer>
+    
+  </footer>
+
+  <script>
+    const hmbBtn = document.getElementById("hmb");
+    const header = document.getElementById("header");
+
+    hmbBtn.addEventListener("click", function () {
+      header.classList.toggle("active");
+    });
+  </script>
+
+  <p><small>&copy; 2025 ナナナの広場^_^.</small></p>
+
+</body>
+
+</html>
