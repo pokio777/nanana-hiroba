@@ -360,59 +360,61 @@ main .date {
 }
 
 @media screen and (max-width: 768px) {
-    /* 1. ロゴ：サイズ調整 */
-    .logo {
-        font-size: 20px !important;
-    }
-
-    /* 2. 「シーズン…」の文字：絶対に画像に収める */
-    .hero_inner p {
-        font-size: 14px !important; /* 思い切って小さく */
-        line-height: 1.4 !important;
-        width: 80% !important; /* 横幅を狭めて中央に寄せる */
-        margin: 5px auto !important;
+    /* 1. 「シーズン42...」の文字を画像内に収める */
+    /* 新着記事のタイトル部分。クラス名が不明なため、共通のpタグやカード内タイトルを狙い撃ちします */
+    .hero_inner p, 
+    .new-articles-title, /* 仮のクラス名 */
+    article h3 {
+        font-size: 14px !important;  /* 思い切って小さく */
+        width: 85% !important;       /* 横幅を制限してはみ出し防止 */
+        margin: 0 auto !important;   /* 中央寄せ */
         white-space: normal !important; /* 折り返しを許可 */
-        overflow: visible !important;   /* はみ出しを隠さない */
+        line-height: 1.4 !important;
+        text-align: center !important;
+        overflow-wrap: break-word !important; /* 長い単語でも強制改行 */
     }
 
-    /* 3. 検索枠：黄色の枠と一体化 */
+    /* 2. 検索枠：黄色の枠と一体化 */
     #box {
         width: 90% !important;
-        height: 48px !important;
+        height: 50px !important;
+        margin: 0 auto !important;
         background-color: #ffffff !important;
-        border: 2px solid #A594F9 !important; /* 通常は紫 */
+        border: 2px solid #A594F9 !important;
         border-radius: 10px !important;
-        position: relative !important;
+        position: relative !important; /* ★虫眼鏡を中に固定するために絶対必要 */
         display: flex !important;
         align-items: center !important;
-        transition: border-color 0.2s !important;
+        transition: 0.2s;
         outline: none !important;
     }
 
-    /* 枠をクリックした時に黄色く光らせる */
+    /* ボックス全体を黄色く光らせる（フォーカス時） */
     #box:focus-within {
-        border-color: #ffda1f !important; /* 黄色い枠 */
+        border-color: #ffda1f !important;
         box-shadow: 0 0 8px rgba(255, 218, 31, 0.6) !important;
     }
 
     #headerSearchText {
         border: none !important;
-        outline: none !important; /* ブラウザの黄色い線を消す */
+        outline: none !important; /* 元の黄色い枠を消す */
         background: transparent !important;
         width: 100% !important;
         height: 100% !important;
-        padding: 0 45px 0 15px !important;
+        padding: 0 50px 0 15px !important; /* ★右側に虫眼鏡のスペースを確保 */
+        font-size: 16px !important;
     }
 
-    /* 4. 虫眼鏡：以前のように右端中央 */
+    /* 3. 虫眼鏡：絶対に枠の「中」に固定 */
     #headerImage {
-        width: 22px !important;
-        height: auto !important;
-        position: absolute !important;
-        right: 12px !important;
+        width: 24px !important;
+        height: 24px !important;
+        position: absolute !important; /* ★親である#boxを基準にする */
+        right: 12px !important;        /* 右端からの距離 */
         top: 50% !important;
-        transform: translateY(-50%) !important;
+        transform: translateY(-50%) !important; /* 垂直中央 */
         z-index: 10 !important;
         border: none !important;
+        background: none !important;
     }
 }
