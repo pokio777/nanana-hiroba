@@ -360,67 +360,61 @@ main .date {
 }
 
 @media screen and (max-width: 768px) {
-    /* 1. メニュー内の検索枠のレイアウト */
-    .nav-search {
-        padding: 20px 0; /* 上下の隙間 */
-        display: flex;
-        justify-content: center;
-        list-style: none;
+    /* 1. ロゴ：スマホの幅に自然に合わせる */
+    .logo {
+        font-size: 20px !important; /* 少し小さくして1行に収まりやすく */
+        max-width: 60% !important;
+        white-space: nowrap !important;
     }
 
+    /* 2. 「シーズン42...」：画像の中に確実に収める */
+    .hero_inner p {
+        font-size: 14px !important; /* 18pxから14pxに縮小して「収まり」を優先 */
+        width: 85% !important;      /* 画像の端までいかないよう幅を制限 */
+        margin: 10px auto 0 !important;
+        line-height: 1.5 !important;
+        text-align: center !important;
+        word-break: break-all;      /* 万が一長すぎても改行してはみ出さない */
+    }
+
+    /* 3. 検索ボックス：黄色い枠の一体化 */
     #box {
-        width: 90% !important; /* 横の隙間（画面幅の90%にする） */
-        height: 50px !important; /* 「力」が消えない高さ */
+        width: 90% !important;
+        height: 50px !important;
         background-color: #ffffff !important;
-        border: 2px solid #A594F9 !important;
+        border: 2px solid #A594F9 !important; /* 通常時の紫枠 */
         border-radius: 10px !important;
         display: flex !important;
         align-items: center !important;
         position: relative !important;
+        transition: 0.2s;
+        overflow: hidden;
+    }
+
+    /* クリック（入力）した時、ボックス自体の枠を黄色くする */
+    #box:focus-within {
+        border-color: #ffda1f !important; /* 黄色い枠 */
+        box-shadow: 0 0 0 2px rgba(255, 218, 31, 0.4) !important; /* 外側に光を漏らして一体感を出す */
     }
 
     #headerSearchText {
         width: 100% !important;
-        height: 50px !important;
-        line-height: 50px !important; /* 文字を中央に。これで解決！ */
+        height: 100% !important;
+        padding: 0 50px 0 15px !important;
         font-size: 16px !important;
-        padding: 0 45px 0 15px !important;
+        background: transparent !important;
         border: none !important;
+        outline: none !important; /* デフォルトのズレる黄色枠を消去 */
     }
 
+    /* 4. 虫眼鏡アイコン：以前のように完璧に右端中央に配置 */
     #headerImage {
-        width: 24px !important;
+        width: 22px !important; /* 少しだけ小さくして余裕を持たせる */
+        height: auto !important;
         position: absolute !important;
         right: 15px !important;
         top: 50% !important;
         transform: translateY(-50%) !important;
-    }
-
-    /* 2. ホーム画像（hero）の設定：重ならないように位置を固定 */
-    #hero {
-        margin-top: 20px !important; /* ヘッダーとの隙間 */
-        width: 90% !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-        height: 180px !important;
-        border-radius: 15px !important;
-        /* メニューが開いても画像が隠れないように、重なりの順序を調整 */
-        position: relative;
-        z-index: 1; 
-    }
-
-    /* 3. 「シーズン…」の文字サイズを適切に（以前より小さく） */
-    .hero_inner p {
-        font-size: 18px !important; /* でかすぎず、読みやすいサイズ */
-        font-weight: bold !important;
-        color: #ffffff !important;
-        text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
-        text-align: center !important;
-        margin: 0 !important;
-    }
-
-    /* 4. メニュー表示時の重なり設定（navが一番上にくるように） */
-    nav {
-        z-index: 100 !important;
+        z-index: 10 !important;
     }
 }
