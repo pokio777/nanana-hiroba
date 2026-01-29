@@ -360,69 +360,74 @@ main .date {
 }
 
 @media screen and (max-width: 768px) {
-    /* 1. 全体の配置：ホーム画像（hero）を下げて、上に検索枠のスペースを作る */
-    #hero {
-        height: 200px !important;
-        margin-top: 70px !important; /* ここで「検索枠」のための隙間を確保 */
-        margin-bottom: 40px !important;
-        border-radius: 15px !important;
-        width: 90% !important; /* 横幅をヘッダーと合わせる */
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-
-    /* 2. 検索枠（白枠）をヘッダーのすぐ下に「独立」して配置 */
-    #box {
-        position: absolute !important;
-        top: 85px !important;    /* ヘッダー(70px)の少し下 */
-        left: 5% !important;     /* 横の隙間をヘッダー(90%)と合わせる */
-        width: 90% !important;   /* ホーム画像と同じ横幅にする */
-        height: 46px !important;  /* 文字が切れないよう高さをしっかり確保 */
-        background-color: #ffffff !important;
-        border: 1px solid #A594F9 !important;
-        border-radius: 8px !important;
-        display: flex !important;
-        align-items: center !important;
-        z-index: 5 !important;
-    }
-
-    /* 3. 入力欄の「文字消え」を完全に直す */
-    #headerSearchText {
-        width: 100% !important;
-        height: 46px !important;      /* 外枠と同じ高さ */
-        line-height: 46px !important; /* 文字を行のど真ん中に固定 */
-        font-size: 16px !important;   /* スマホで入力時にズームしない適正サイズ */
-        padding: 0 45px 0 15px !important; /* 右側に虫眼鏡用の隙間を空ける */
-        background: transparent !important;
-        border: none !important;
-        display: block !important;
-    }
-
-    /* 4. 虫眼鏡アイコンを入力欄の「中」に固定 */
-    #headerImage {
-        width: 20px !important;
-        position: absolute !important;
-        right: 15px !important;
-        left: auto !important; /* 以前の180px設定を解除 */
-        top: 50% !important;
-        transform: translateY(-50%) !important;
-    }
-
-    /* 5. ヘッダーとメニューの調整 */
+    /* --- ヘッダーとハンバーガーメニューの基本位置 --- */
     #header {
-        width: 90% !important;
-        margin: 0 auto !important;
+        position: relative;
+        height: 60px; /* ヘッダーの高さを固定 */
+        display: flex;
+        align-items: center;
+        padding: 0 5%;
     }
 
     #hmb {
         position: absolute !important;
-        right: 20px !important;
-        top: 50% !important;
-        transform: translateY(-50%) !important;
+        right: 5% !important; /* 右側に固定 */
+        top: 20px !important;
+        z-index: 100;
+        display: block !important;
     }
 
-    /* ヒーロー内の文字サイズ調整 */
+    /* --- 検索枠：ホーム画像の上、左右・下に隙間を作る --- */
+    #search-form {
+        position: absolute;
+        top: 70px;    /* ヘッダーのすぐ下 */
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    #box {
+        width: 90% !important;    /* 左右に隙間（100% - 90% = 左右5%ずつ） */
+        height: 50px !important;   /* 「力」が消えない十分な高さ */
+        background-color: #ffffff !important;
+        border: 2px solid #A594F9 !important; /* 枠線を少し太くして強調 */
+        border-radius: 10px !important;
+        display: flex !important;
+        align-items: center !important;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* 少し浮かせると綺麗です */
+    }
+
+    #headerSearchText {
+        width: 100% !important;
+        height: 100% !important;
+        line-height: 50px !important; /* 高さと合わせることで文字消えを防止 */
+        padding: 0 50px 0 15px !important;
+        font-size: 16px !important;
+        background: transparent !important;
+        border: none !important;
+    }
+
+    #headerImage {
+        width: 24px !important;
+        position: absolute !important;
+        right: 15px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        left: auto !important;
+    }
+
+    /* --- ホーム画像（hero）：検索枠との間に隙間を作る --- */
+    #hero {
+        margin-top: 80px !important; /* 検索枠(50px) + 下の隙間(30px) */
+        width: 90% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        height: 200px !important;
+        border-radius: 15px !important;
+    }
+
     .hero_inner p {
-        font-size: 32px !important;
+        font-size: 28px !important; /* スマホで見やすいサイズに調整 */
     }
 }
