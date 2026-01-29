@@ -360,52 +360,31 @@ main .date {
 }
 
 @media screen and (max-width: 768px) {
-    /* --- 1. ヘッダーとハンバーガーメニューの固定 --- */
-    #header {
-        position: relative;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        padding: 0 5%;
-    }
-
-    #hmb {
-        position: absolute !important;
-        right: 5% !important; /* 右端に固定 */
-        top: 20px !important;
-        z-index: 100;
-        display: block !important;
-    }
-
-    /* --- 2. 検索枠（白枠）：ホーム画像の上に隙間を持って配置 --- */
-    #search-form {
-        position: absolute;
-        top: 70px;    /* ヘッダーからの距離 */
-        left: 0;
-        width: 100%;
+    /* 1. メニュー内の検索枠のレイアウト */
+    .nav-search {
+        padding: 20px 0; /* 上下の隙間 */
         display: flex;
         justify-content: center;
-        z-index: 10;
+        list-style: none;
     }
 
     #box {
-        width: 90% !important;    /* 左右に5%ずつの隙間 */
-        height: 50px !important;   /* 「力」が消えない高さ */
+        width: 90% !important; /* 横の隙間（画面幅の90%にする） */
+        height: 50px !important; /* 「力」が消えない高さ */
         background-color: #ffffff !important;
         border: 2px solid #A594F9 !important;
         border-radius: 10px !important;
         display: flex !important;
         align-items: center !important;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        position: relative !important;
     }
 
     #headerSearchText {
         width: 100% !important;
         height: 50px !important;
-        line-height: 50px !important; /* 文字を上下中央に固定 */
-        padding: 0 50px 0 15px !important;
+        line-height: 50px !important; /* 文字を中央に。これで解決！ */
         font-size: 16px !important;
-        background: transparent !important;
+        padding: 0 45px 0 15px !important;
         border: none !important;
     }
 
@@ -415,36 +394,33 @@ main .date {
         right: 15px !important;
         top: 50% !important;
         transform: translateY(-50%) !important;
-        left: auto !important;
     }
 
-    /* --- 3. ホーム画像（hero）：検索枠との間に30pxほどの隙間 --- */
+    /* 2. ホーム画像（hero）の設定：重ならないように位置を固定 */
     #hero {
-        margin-top: 80px !important; /* 検索枠(50px) + 下の隙間(30px) */
+        margin-top: 20px !important; /* ヘッダーとの隙間 */
         width: 90% !important;
         margin-left: auto !important;
         margin-right: auto !important;
-        height: 200px !important;
+        height: 180px !important;
         border-radius: 15px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
+        /* メニューが開いても画像が隠れないように、重なりの順序を調整 */
+        position: relative;
+        z-index: 1; 
     }
 
-    /* --- 4. 「シーズン…」の文字サイズ調整 --- */
+    /* 3. 「シーズン…」の文字サイズを適切に（以前より小さく） */
     .hero_inner p {
-        font-size: 18px !important; /* でかすぎ問題を解決。18pxでスッキリ */
+        font-size: 18px !important; /* でかすぎず、読みやすいサイズ */
         font-weight: bold !important;
         color: #ffffff !important;
         text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
-        margin: 0 !important;
         text-align: center !important;
+        margin: 0 !important;
     }
 
-    /* もし見出し(h2)も使っている場合はここも調整 */
-    .hero_inner h2 {
-        font-size: 22px !important;
-        color: #ffffff !important;
-        margin-bottom: 5px !important;
+    /* 4. メニュー表示時の重なり設定（navが一番上にくるように） */
+    nav {
+        z-index: 100 !important;
     }
 }
