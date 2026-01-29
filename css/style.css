@@ -360,61 +360,59 @@ main .date {
 }
 
 @media screen and (max-width: 768px) {
-    /* 1. ロゴ：スマホの幅に自然に合わせる */
+    /* 1. ロゴ：サイズ調整 */
     .logo {
-        font-size: 20px !important; /* 少し小さくして1行に収まりやすく */
-        max-width: 60% !important;
-        white-space: nowrap !important;
+        font-size: 20px !important;
     }
 
-    /* 2. 「シーズン42...」：画像の中に確実に収める */
+    /* 2. 「シーズン…」の文字：絶対に画像に収める */
     .hero_inner p {
-        font-size: 14px !important; /* 18pxから14pxに縮小して「収まり」を優先 */
-        width: 85% !important;      /* 画像の端までいかないよう幅を制限 */
-        margin: 10px auto 0 !important;
-        line-height: 1.5 !important;
-        text-align: center !important;
-        word-break: break-all;      /* 万が一長すぎても改行してはみ出さない */
+        font-size: 14px !important; /* 思い切って小さく */
+        line-height: 1.4 !important;
+        width: 80% !important; /* 横幅を狭めて中央に寄せる */
+        margin: 5px auto !important;
+        white-space: normal !important; /* 折り返しを許可 */
+        overflow: visible !important;   /* はみ出しを隠さない */
     }
 
-    /* 3. 検索ボックス：黄色い枠の一体化 */
+    /* 3. 検索枠：黄色の枠と一体化 */
     #box {
         width: 90% !important;
-        height: 50px !important;
+        height: 48px !important;
         background-color: #ffffff !important;
-        border: 2px solid #A594F9 !important; /* 通常時の紫枠 */
+        border: 2px solid #A594F9 !important; /* 通常は紫 */
         border-radius: 10px !important;
+        position: relative !important;
         display: flex !important;
         align-items: center !important;
-        position: relative !important;
-        transition: 0.2s;
-        overflow: hidden;
+        transition: border-color 0.2s !important;
+        outline: none !important;
     }
 
-    /* クリック（入力）した時、ボックス自体の枠を黄色くする */
+    /* 枠をクリックした時に黄色く光らせる */
     #box:focus-within {
         border-color: #ffda1f !important; /* 黄色い枠 */
-        box-shadow: 0 0 0 2px rgba(255, 218, 31, 0.4) !important; /* 外側に光を漏らして一体感を出す */
+        box-shadow: 0 0 8px rgba(255, 218, 31, 0.6) !important;
     }
 
     #headerSearchText {
+        border: none !important;
+        outline: none !important; /* ブラウザの黄色い線を消す */
+        background: transparent !important;
         width: 100% !important;
         height: 100% !important;
-        padding: 0 50px 0 15px !important;
-        font-size: 16px !important;
-        background: transparent !important;
-        border: none !important;
-        outline: none !important; /* デフォルトのズレる黄色枠を消去 */
+        padding: 0 45px 0 15px !important;
     }
 
-    /* 4. 虫眼鏡アイコン：以前のように完璧に右端中央に配置 */
+    /* 4. 虫眼鏡：以前のように右端中央 */
     #headerImage {
-        width: 22px !important; /* 少しだけ小さくして余裕を持たせる */
+        width: 22px !important;
         height: auto !important;
         position: absolute !important;
-        right: 15px !important;
+        right: 12px !important;
         top: 50% !important;
         transform: translateY(-50%) !important;
         z-index: 10 !important;
+        border: none !important;
     }
 }
