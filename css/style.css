@@ -365,9 +365,11 @@ main .date {
        1. 検索キーワード入力（原点回帰）
        ========================================= */
     #box {
-        position: relative !important; /* 虫眼鏡の「家」の基準 */
+        position: relative !important;
+        /* 虫眼鏡の「家」の基準 */
         width: 90% !important;
-        height: 40px !important;       /* 高さを少し抑えてスッキリさせる */
+        height: 40px !important;
+        /* 高さを少し抑えてスッキリさせる */
         margin: 0 auto !important;
         background-color: #ffffff !important;
         border: 2px solid #A594F9 !important;
@@ -382,9 +384,11 @@ main .date {
     /* 虫眼鏡：絶対配置で強制的に「枠の右」に置く */
     #headerImage {
         position: absolute !important;
-        right: 10px !important;        /* 右から10pxの位置に固定 */
+        right: 10px !important;
+        /* 右から10pxの位置に固定 */
         top: 50% !important;
-        transform: translateY(-50%) !important; /* 上下ど真ん中 */
+        transform: translateY(-50%) !important;
+        /* 上下ど真ん中 */
         width: 20px !important;
         height: auto !important;
         margin: 0 !important;
@@ -396,7 +400,8 @@ main .date {
     #headerSearchText {
         width: 100% !important;
         height: 100% !important;
-        padding: 0 40px 0 10px !important; /* 右側に虫眼鏡分のスペースを確保 */
+        padding: 0 40px 0 10px !important;
+        /* 右側に虫眼鏡分のスペースを確保 */
         font-size: 16px !important;
         background: transparent !important;
         border: none !important;
@@ -411,14 +416,16 @@ main .date {
         /* 背景画像を大きくする */
         width: 94% !important;
         margin: 20px auto !important;
-        height: auto !important;      /* 高さを固定しない */
-        min-height: 250px !important; /* 最低でもこれくらい大きく！ */
-        
+        height: auto !important;
+        /* 高さを固定しない */
+        min-height: 250px !important;
+        /* 最低でもこれくらい大きく！ */
+
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
         border-radius: 15px !important;
-        
+
         /* 背景画像の設定（CSSで画像を指定している場合） */
         background-size: cover !important;
         background-position: center !important;
@@ -426,7 +433,8 @@ main .date {
 
     /* 中の文字「ナナナの広場^_^」 */
     .hero_inner p.pop {
-        font-size: 24px !important;  /* スマホで見やすい大きさ */
+        font-size: 24px !important;
+        /* スマホで見やすい大きさ */
         width: 90% !important;
         text-align: center !important;
         color: #000000 !important;
@@ -440,15 +448,19 @@ main .date {
     /* 背景部分（subhero）を大きくする */
     .subhero {
         width: 100% !important;
-        height: auto !important;       /* 文字数に合わせて伸びるようにする */
-        min-height: 180px !important;  /* 背景画像の高さを確保 */
-        padding: 15px !important;      /* 中の文字が端に行かないように */
-        
+        height: auto !important;
+        /* 文字数に合わせて伸びるようにする */
+        min-height: 180px !important;
+        /* 背景画像の高さを確保 */
+        padding: 15px !important;
+        /* 中の文字が端に行かないように */
+
         display: flex !important;
-        flex-direction: column !important; /* 縦並び */
+        flex-direction: column !important;
+        /* 縦並び */
         justify-content: center !important;
         align-items: center !important;
-        
+
         background-size: cover !important;
         background-position: center !important;
         border-radius: 10px !important;
@@ -456,19 +468,22 @@ main .date {
 
     /* 文字部分（catch-copy） */
     .subhero .catch-copy {
-        font-size: 15px !important;    /* 画像からはみ出さないサイズ */
+        font-size: 15px !important;
+        /* 画像からはみ出さないサイズ */
         line-height: 1.5 !important;
-        width: 100% !important;        /* 親枠いっぱいまで使う */
+        width: 100% !important;
+        /* 親枠いっぱいまで使う */
         margin: 0 !important;
-        
+
         /* 改行の設定 */
-        white-space: normal !important; /* 勝手に改行させる */
+        white-space: normal !important;
+        /* 勝手に改行させる */
         word-wrap: break-word !important;
         text-align: center !important;
-        
+
         color: #000000 !important;
     }
-    
+
     /* 日付の部分 */
     .subhero .date {
         margin-top: 10px !important;
