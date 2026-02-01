@@ -297,55 +297,104 @@ main input[type=submit] {
     border-radius: 6px;
 }
 
-/* --- 既存の基本設定は維持 --- */
-
-/* --- 【ここから修正】お問い合わせ・リストのスマホ最適化 --- */
 @media screen and (max-width: 768px) {
-    /* 1. コンテンツ全体の余白をスマホ向けに */
-    main, footer {
-        padding: 40px 15px; /* 100pxだと余白が広すぎるので40pxに */
+
+    /* --- 1. 検索窓（以前の数値を維持） --- */
+    #box {
+        position: relative !important;
+        top: 0 !important;
+        width: 90% !important;
+        height: 40px !important;
+        margin: 0 auto 20px auto !important;
+        background-color: #ffffff !important;
+        border: 2px solid #A594F9 !important;
+        border-radius: 8px !important;
+        display: flex !important;
+        align-items: center !important;
     }
 
-    main {
-        margin-bottom: 60px; /* 下の余白も適度に調整 */
+    #headerImage {
+        position: absolute !important;
+        right: 10px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        width: 20px !important;
     }
 
-    /* 2. 見出しのサイズ */
-    main h2 {
-        font-size: 22px; /* スマホで見やすい大きさに */
-    }
-
-    /* 3. フォーム（入力欄）の調整 */
-    main form {
-        width: 100%; /* 画面幅いっぱいに使う */
-    }
-
-    main input, 
-    main textarea {
-        padding: 10px; /* 内側の余白を少し詰める */
-        margin-bottom: 20px;
-    }
-
-    main input[type=submit] {
-        padding: 15px 10px; /* 送信ボタンを少しスリムに */
-        letter-spacing: 2px; /* 文字の間隔をスマホ向けに調整 */
-    }
-
-    /* 4. アコーディオンリストの調整 */
-    .arow-list::after {
-        left: 90%; /* 矢印の位置が文字に被らないよう端へ寄せる */
-    }
-
-    #child-lists li a {
-        padding: 15px 20px; /* タップ領域は確保しつつスリムに */
-    }
-
-    /* 5. ヘッダー周りの微調整（はみ出し防止） */
-    #header {
-        width: 95%;
-    }
-    
     #headerSearchText {
-        width: 100px; /* 検索窓が右に突き抜けるのを防ぐ */
+        width: 100% !important;
+        padding: 0 40px 0 10px !important;
+        font-size: 16px !important;
+        border: none !important;
+    }
+
+    /* --- 2. メニュー項目：以前と同じ「100px」の巨大な余白を復元 --- */
+    nav ul li {
+        margin-bottom: 0 !important; /* 基本のliは詰め、list-itemで広げる */
+    }
+
+    /* 「ゲーム解説」の上下にある、あの大きな隙間を作ります */
+    .list-item {
+        margin: 100px auto !important; /* あなたのコードにある100pxをスマホでも強制適用 */
+    }
+
+    nav ul li a,
+    .arow-list label {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 19px 40px 15px 40px !important; /* 元のパディングを維持 */
+        border: 1px solid #000000 !important;
+        background-color: #A594F9 !important;
+        line-height: 1 !important;
+    }
+
+    nav ul li a img,
+    .arow-list label img {
+        width: 20px !important;
+        margin-right: 8px !important;
+        display: inline-block !important;
+    }
+
+    /* --- 3. プルダウン（ブロスタ）：隙間を以前の動きに合わせる --- */
+    #child-lists li {
+        height: 0 !important;
+        overflow: hidden !important;
+        transition: all 0.5s !important;
+    }
+
+    #product-list:checked ~ #child-lists li {
+        height: 50px !important;
+        border-bottom: 1px solid #000000 !important;
+        margin-top: 0 !important; /* ブロスタのすぐ下には余白を作らない */
+    }
+
+    /* --- 4. 広場・記事エリア（以前解決したコード） --- */
+    #hero {
+        width: 94% !important;
+        margin: 20px auto !important;
+        min-height: 250px !important;
+        height: auto !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background-size: cover !important;
+    }
+
+    .subhero {
+        width: 100% !important;
+        min-height: 180px !important;
+        height: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        background-size: cover !important;
+    }
+
+    .subhero .catch-copy {
+        font-size: 15px !important;
+        width: 100% !important;
+        text-align: center !important;
     }
 }
