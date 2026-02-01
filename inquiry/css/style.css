@@ -330,12 +330,14 @@ main input[type=submit] {
 
     /* --- 2. メニュー項目：以前と同じ「100px」の巨大な余白を復元 --- */
     nav ul li {
-        margin-bottom: 0 !important; /* 基本のliは詰め、list-itemで広げる */
+        margin-bottom: 0 !important;
+        /* 基本のliは詰め、list-itemで広げる */
     }
 
     /* 「ゲーム解説」の上下にある、あの大きな隙間を作ります */
     .list-item {
-        margin: 100px auto !important; /* あなたのコードにある100pxをスマホでも強制適用 */
+        margin: 100px auto !important;
+        /* あなたのコードにある100pxをスマホでも強制適用 */
     }
 
     nav ul li a,
@@ -343,7 +345,8 @@ main input[type=submit] {
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        padding: 19px 40px 15px 40px !important; /* 元のパディングを維持 */
+        padding: 19px 40px 15px 40px !important;
+        /* 元のパディングを維持 */
         border: 1px solid #000000 !important;
         background-color: #A594F9 !important;
         line-height: 1 !important;
@@ -363,10 +366,11 @@ main input[type=submit] {
         transition: all 0.5s !important;
     }
 
-    #product-list:checked ~ #child-lists li {
+    #product-list:checked~#child-lists li {
         height: 50px !important;
         border-bottom: 1px solid #000000 !important;
-        margin-top: 0 !important; /* ブロスタのすぐ下には余白を作らない */
+        margin-top: 0 !important;
+        /* ブロスタのすぐ下には余白を作らない */
     }
 
     /* --- 4. 広場・記事エリア（以前解決したコード） --- */
