@@ -360,61 +360,67 @@ main .date {
 }
 
 @media screen and (max-width: 768px) {
-    /* 1. 「シーズン42...」の文字を画像内に収める */
-    /* 新着記事のタイトル部分。クラス名が不明なため、共通のpタグやカード内タイトルを狙い撃ちします */
+    /* 1. 【最優先】タイトルの文字を画像に無理やり収める */
+    /* 「新着記事」の下のタイトルを狙い撃ちします */
     .hero_inner p, 
-    .new-articles-title, /* 仮のクラス名 */
-    article h3 {
-        font-size: 14px !important;  /* 思い切って小さく */
-        width: 85% !important;       /* 横幅を制限してはみ出し防止 */
-        margin: 0 auto !important;   /* 中央寄せ */
-        white-space: normal !important; /* 折り返しを許可 */
-        line-height: 1.4 !important;
+    .new-article-text, 
+    article p, 
+    .post-title {
+        font-size: 13px !important;  /* かなり小さくしました */
+        line-height: 1.3 !important;
+        width: 90% !important;       /* 横幅を制限 */
+        margin: 5px auto !important; /* 中央寄せ */
+        padding: 0 5px !important;
+        white-space: normal !important; /* 折り返しを強制 */
         text-align: center !important;
-        overflow-wrap: break-word !important; /* 長い単語でも強制改行 */
+        color: #ffffff !important;
     }
 
-    /* 2. 検索枠：黄色の枠と一体化 */
+    /* 2. 検索枠：虫眼鏡を「中」に閉じ込める設定 */
     #box {
+        position: relative !important; /* これが「虫眼鏡」の固定基準になります */
         width: 90% !important;
-        height: 50px !important;
+        height: 46px !important;
         margin: 0 auto !important;
         background-color: #ffffff !important;
         border: 2px solid #A594F9 !important;
-        border-radius: 10px !important;
-        position: relative !important; /* ★虫眼鏡を中に固定するために絶対必要 */
+        border-radius: 8px !important;
         display: flex !important;
         align-items: center !important;
-        transition: 0.2s;
-        outline: none !important;
+        overflow: hidden !important; /* はみ出しを許さない */
     }
 
-    /* ボックス全体を黄色く光らせる（フォーカス時） */
+    /* クリックした時の黄色い枠の一体化 */
     #box:focus-within {
         border-color: #ffda1f !important;
-        box-shadow: 0 0 8px rgba(255, 218, 31, 0.6) !important;
+        box-shadow: 0 0 5px rgba(255, 218, 31, 0.8) !important;
     }
 
     #headerSearchText {
-        border: none !important;
-        outline: none !important; /* 元の黄色い枠を消す */
-        background: transparent !important;
         width: 100% !important;
         height: 100% !important;
-        padding: 0 50px 0 15px !important; /* ★右側に虫眼鏡のスペースを確保 */
+        padding: 0 45px 0 12px !important; /* 右側に虫眼鏡用の空き地を作る */
         font-size: 16px !important;
+        border: none !important;
+        outline: none !important; /* 変な枠を消す */
+        background: transparent !important;
     }
 
-    /* 3. 虫眼鏡：絶対に枠の「中」に固定 */
+    /* 3. 虫眼鏡：絶対に枠の「内側」に固定 */
     #headerImage {
-        width: 24px !important;
-        height: 24px !important;
-        position: absolute !important; /* ★親である#boxを基準にする */
-        right: 12px !important;        /* 右端からの距離 */
+        position: absolute !important;
+        right: 10px !important;  /* 右端から10pxの位置に固定 */
         top: 50% !important;
-        transform: translateY(-50%) !important; /* 垂直中央 */
-        z-index: 10 !important;
-        border: none !important;
-        background: none !important;
+        transform: translateY(-50%) !important; /* 上下中央 */
+        width: 22px !important;
+        height: 22px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        z-index: 5 !important;
+    }
+
+    /* ロゴの調整（スマホサイズに合わせるだけ） */
+    .logo {
+        font-size: 1.2rem !important;
     }
 }
