@@ -429,7 +429,7 @@ main .date {
         font-size: 24px !important;  /* スマホで見やすい大きさ */
         width: 90% !important;
         text-align: center !important;
-        color: #ffffff !important;   /* 背景が暗いなら白文字 */
+        color: #000000 !important;   /* 背景が暗いなら白文字 */
         text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
         margin: 0 !important;
     }
@@ -467,7 +467,7 @@ main .date {
         word-wrap: break-word !important;
         text-align: center !important;
         
-        color: #ffffff !important;
+        color: #000000 !important;
         text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
     }
     
@@ -475,7 +475,7 @@ main .date {
     .subhero .date {
         margin-top: 10px !important;
         font-size: 12px !important;
-        color: #ffffff !important;
+        color: #000000 !important;
         text-align: right !important;
         width: 100% !important;
     }
