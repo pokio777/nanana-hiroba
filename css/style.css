@@ -362,129 +362,121 @@ main .date {
 @media screen and (max-width: 768px) {
 
     /* =========================================
-       1. 検索キーワード入力（シンプル＆確実固定）
+       1. 検索キーワード入力（原点回帰）
        ========================================= */
     #box {
-        position: relative !important; /* これがないと虫眼鏡が迷子になります */
+        position: relative !important; /* 虫眼鏡の「家」の基準 */
         width: 90% !important;
-        height: 46px !important;
-        margin: 0 auto !important;     /* 上下左右の空きは維持 */
+        height: 40px !important;       /* 高さを少し抑えてスッキリさせる */
+        margin: 0 auto !important;
         background-color: #ffffff !important;
         border: 2px solid #A594F9 !important;
         border-radius: 8px !important;
         display: flex !important;
         align-items: center !important;
-        /* 光らせない設定 */
-        box-shadow: none !important;
+        /* 光らせる設定は削除 */
         outline: none !important;
-    }
-
-    /* 押した時も黄色く光らせない・枠の色も変えない */
-    #box:focus-within {
-        border-color: #A594F9 !important;
         box-shadow: none !important;
     }
 
-    #headerSearchText {
-        width: 100% !important;
-        height: 100% !important;
-        /* 右側に40pxの余白を作り、文字が虫眼鏡の下に潜り込むのを防ぐ */
-        padding: 0 40px 0 15px !important; 
-        font-size: 16px !important; /* スマホで見やすい標準サイズ */
-        border: none !important;
-        background: transparent !important;
-        outline: none !important; /* 入力欄の青や黄色の枠も消す */
-    }
-
-    /* 虫眼鏡：AQUOS sense4対応 */
+    /* 虫眼鏡：絶対配置で強制的に「枠の右」に置く */
     #headerImage {
-        position: absolute !important; /* 親(box)の中で絶対配置 */
-        right: 8px !important;         /* 右端から8pxの位置で固定 */
-        top: 50% !important;           /* 上から50% */
-        transform: translateY(-50%) !important; /* 完全に真ん中へ補正 */
-        width: 20px !important;        /* 少し小さくして枠内に余裕を持たせる */
+        position: absolute !important;
+        right: 10px !important;        /* 右から10pxの位置に固定 */
+        top: 50% !important;
+        transform: translateY(-50%) !important; /* 上下ど真ん中 */
+        width: 20px !important;
         height: auto !important;
         margin: 0 !important;
         padding: 0 !important;
-        z-index: 10 !important;        /* 他の要素より手前に表示 */
-        pointer-events: none;          /* 誤タップ防止（入力の邪魔をさせない） */
+        z-index: 10 !important;
+    }
+
+    /* 入力欄：虫眼鏡の下に文字が潜り込まないようにする */
+    #headerSearchText {
+        width: 100% !important;
+        height: 100% !important;
+        padding: 0 40px 0 10px !important; /* 右側に虫眼鏡分のスペースを確保 */
+        font-size: 16px !important;
+        background: transparent !important;
+        border: none !important;
+        outline: none !important;
     }
 
 
     /* =========================================
-       2. メイン画像（2つ目の「ナナナの広場」）
+       2. トップ画像（ナナナの広場：2つ目のやつ）
        ========================================= */
     #hero {
-        width: 90% !important;
+        /* 背景画像を大きくする */
+        width: 94% !important;
         margin: 20px auto !important;
-        /* ★重要：高さ固定(height)をやめ、最低の高さ(min-height)にする */
-        height: auto !important;       
-        min-height: 250px !important;  /* 背景画像を大きくしました */
+        height: auto !important;      /* 高さを固定しない */
+        min-height: 250px !important; /* 最低でもこれくらい大きく！ */
         
         display: flex !important;
-        align-items: center !important; /* 上下中央揃え */
+        align-items: center !important;
         justify-content: center !important;
         border-radius: 15px !important;
-        padding: 20px !important;      /* 文字が端に行き過ぎないよう余白確保 */
+        
+        /* 背景画像の設定（CSSで画像を指定している場合） */
         background-size: cover !important;
         background-position: center !important;
     }
 
-    /* 中の文字サイズ調整 */
-    .hero_inner h1, 
-    .hero_inner h2 { 
-        font-size: 24px !important; /* 背景に負けない大きさ */
-        text-shadow: 2px 2px 5px rgba(0,0,0,0.7); /* 白文字なら読みやすく */
+    /* 中の文字「ナナナの広場^_^」 */
+    .hero_inner p.pop {
+        font-size: 24px !important;  /* スマホで見やすい大きさ */
+        width: 90% !important;
         text-align: center !important;
-        width: 100% !important;
+        color: #ffffff !important;   /* 背景が暗いなら白文字 */
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        margin: 0 !important;
     }
 
 
     /* =========================================
-       3. 「シーズン...」などの記事・画像エリア
+       3. 新着記事（シーズン42...）：ここを絶対直す
        ========================================= */
-    /* クラス名が推測ですが、記事の画像エリア全てに適用されます */
-    article, .card, .post {
-        width: 90% !important;
-        margin: 15px auto !important;
-        /* ここも高さ固定を廃止。文字が増えたら背景も伸びます */
-        height: auto !important;
-        min-height: 180px !important; /* 背景画像を大きく確保 */
-        position: relative !important;
-        background-size: cover !important;
-        border-radius: 10px !important;
-        overflow: hidden !important; /* 角丸からはみ出させない */
-    }
-
-    /* 文字の設定 */
-    .hero_inner p, 
-    article p, 
-    article h3,
-    .post-title {
-        font-size: 15px !important;    /* 14pxより少し大きく、読みやすく */
-        line-height: 1.5 !important;   /* 行間を広げて窮屈さを無くす */
-        width: 90% !important;         /* 左右に余白を持たせる */
-        margin: 0 auto !important;     /* 中央配置 */
-        padding: 10px !important;      /* 上下の余白 */
+    /* 背景部分（subhero）を大きくする */
+    .subhero {
+        width: 100% !important;
+        height: auto !important;       /* 文字数に合わせて伸びるようにする */
+        min-height: 180px !important;  /* 背景画像の高さを確保 */
+        padding: 15px !important;      /* 中の文字が端に行かないように */
         
-        /* 文字数が多い時の安全策 */
-        word-wrap: break-word !important;
-        white-space: normal !important;
-        text-align: center !important;
-        color: #ffffff !important;
-        text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
-        
-        /* 上下中央に配置するための設定 */
-        position: relative !important;
-        z-index: 2;
-    }
-    
-    /* もしフレックスボックスで中央寄せする場合の親要素設定 */
-    .hero_inner, article .text-area {
         display: flex !important;
-        flex-direction: column !important;
+        flex-direction: column !important; /* 縦並び */
         justify-content: center !important;
         align-items: center !important;
-        min-height: 180px !important; /* 親の背景サイズに合わせる */
+        
+        background-size: cover !important;
+        background-position: center !important;
+        border-radius: 10px !important;
+    }
+
+    /* 文字部分（catch-copy） */
+    .subhero .catch-copy {
+        font-size: 15px !important;    /* 画像からはみ出さないサイズ */
+        line-height: 1.5 !important;
+        width: 100% !important;        /* 親枠いっぱいまで使う */
+        margin: 0 !important;
+        
+        /* 改行の設定 */
+        white-space: normal !important; /* 勝手に改行させる */
+        word-wrap: break-word !important;
+        text-align: center !important;
+        
+        color: #ffffff !important;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    }
+    
+    /* 日付の部分 */
+    .subhero .date {
+        margin-top: 10px !important;
+        font-size: 12px !important;
+        color: #ffffff !important;
+        text-align: right !important;
+        width: 100% !important;
     }
 }
