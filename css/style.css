@@ -429,8 +429,7 @@ main .date {
         font-size: 24px !important;  /* スマホで見やすい大きさ */
         width: 90% !important;
         text-align: center !important;
-        color: #000000 !important;   /* 背景が暗いなら白文字 */
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        color: #000000 !important;
         margin: 0 !important;
     }
 
@@ -468,7 +467,6 @@ main .date {
         text-align: center !important;
         
         color: #000000 !important;
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
     }
     
     /* 日付の部分 */
