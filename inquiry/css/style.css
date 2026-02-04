@@ -299,7 +299,7 @@ main input[type=submit] {
 
 @media screen and (max-width: 768px) {
 
-    /* --- 1. 検索窓 --- */
+    /* --- 1. 検索窓（以前の仕様通り） --- */
     #box {
         position: relative !important;
         top: 0 !important;
@@ -326,20 +326,23 @@ main input[type=submit] {
         padding: 0 40px 0 10px !important;
         font-size: 16px !important;
         border: none !important;
+        background: transparent !important;
     }
 
-    /* --- 2. メニュー項目：枠の重なりを解消 --- */
+    /* --- 2. メニュー項目：枠の太さを「ホーム」と完全一致させる --- */
+
+    /* ゲーム解説の上下にある100pxの余白を維持 */
     .list-item {
         margin: 100px auto !important;
-        /* 以前の大きな余白を維持 */
     }
 
-    /* 親要素の枠線を消して「label」側だけに線を残す */
+    /* 二重線を防ぐため、親の枠線を完全に消す */
     .arow-list {
         border: none !important;
         background-color: transparent !important;
     }
 
+    /* 「ホーム」「ゲーム解説」「お問い合わせ」すべての枠を 1px で統一 */
     nav ul li a,
     .arow-list label {
         display: flex !important;
@@ -347,7 +350,7 @@ main input[type=submit] {
         justify-content: center !important;
         padding: 19px 40px 15px 40px !important;
         border: 1px solid #000000 !important;
-        /* ここだけで線を引く */
+        /* ホームと同じ太さ */
         background-color: #A594F9 !important;
         line-height: 1 !important;
     }
@@ -359,21 +362,35 @@ main input[type=submit] {
         display: inline-block !important;
     }
 
-    /* --- 3. プルダウン（ブロスタ） --- */
+    /* --- 3. プルダウン（ブロスタ）：枠線の重なりを排除 --- */
     #child-lists li {
         height: 0 !important;
         overflow: hidden !important;
         transition: all 0.5s !important;
+        border: none !important;
+        /* 閉じている時は線を消す */
     }
 
+    /* 「ブロスタ」が開いた時も、太くならないよう調整 */
     #product-list:checked~#child-lists li {
         height: 50px !important;
-        border: 1px solid #000000 !important;
+        border-left: 1px solid #000000 !important;
+        border-right: 1px solid #000000 !important;
+        border-bottom: 1px solid #000000 !important;
         border-top: none !important;
-        /* 親との境目の線を消してスッキリさせる */
+        /* ゲーム解説の底辺と重なる部分の線を消す */
     }
 
-    /* --- 4. 広場・新着記事（前回の正解を維持） --- */
+    #child-lists li a {
+        padding: 17px 40px !important;
+        height: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border: none !important;
+    }
+
+    /* --- 4. 広場・新着記事（解決済みのコードを維持） --- */
     #hero {
         width: 94% !important;
         margin: 20px auto !important;
@@ -395,6 +412,7 @@ main input[type=submit] {
         justify-content: center !important;
         align-items: center !important;
         background-size: cover !important;
+        border-radius: 10px !important;
     }
 
     .subhero .catch-copy {
