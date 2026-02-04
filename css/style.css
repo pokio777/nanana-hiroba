@@ -30,6 +30,43 @@ footer {
     font-family: "DotGothic16", sans-serif;
 }
 
+#hero {
+    background-image: url(../images/grassland-dot3.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 440px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 90px;
+    overflow: hidden;
+    position: relative;
+}
+
+#hero::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: #A594F9;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.hero_inner {
+    z-index: 2;
+    color: #000000;
+    width: 100%;
+    text-align: center;
+}
+
+.hero_inner p {
+    font-size: 100px;
+    font-weight: 700;
+}
+
 #header.active {
     background-color: #7A85C1;
 }
@@ -245,7 +282,7 @@ nav ul li div input {
 
 main {
     padding-top: 60px;
-    margin-bottom: 130px;
+    margin-bottom: 60px;
 }
 
 main .container {
@@ -267,139 +304,192 @@ main hr {
     width: 60px;
 }
 
-main form {
-    max-width: 540px;
+main ul {
+    max-width: 700px;
     margin: 0 auto;
 }
 
-main label {
-    display: block;
-    margin-bottom: 16px;
-    font-weight: 500;
+main li {
+    border: solid 1px #000000;
+    margin-bottom: 20px;
+    padding: 16px 24px;
 }
 
-main input,
-main textarea {
-    background-color: #ffffff;
-    display: block;
+.subhero {
+    background-image: url(../game\ commentary/images/Screenshot_20250924-164000.png);
+    background-position: center;
+    background-size: cover;
+    height: 308px;
+    display: flex;
+    position: relative;
+}
+
+.subhero::before {
+    content: '';
     width: 100%;
-    padding: 13px 16px;
-    margin-bottom: 30px;
+    height: 100%;
+    background-color: #A594F9;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
 }
 
-main input[type=submit] {
-    text-align: center;
-    background-color: #A594F9;
+.subhero .catch-copy {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Mochiy Pop P One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 34px;
     color: #000000;
-    font-weight: 700;
-    padding: 20px 16px 22px;
-    letter-spacing: 6px;
-    border-radius: 6px;
+}
+
+main .date {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #000000;
+    font-weight: 500;
+    font-size: x-large;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
 }
 
 @media screen and (max-width: 768px) {
 
-    /* --- 1. 検索窓 --- */
+    /* =========================================
+       1. 検索キーワード入力（原点回帰）
+       ========================================= */
     #box {
         position: relative !important;
-        top: 0 !important;
+        /* 虫眼鏡の「家」の基準 */
         width: 90% !important;
         height: 40px !important;
-        margin: 0 auto 20px auto !important;
+        /* 高さを少し抑えてスッキリさせる */
+        margin: 0 auto !important;
         background-color: #ffffff !important;
         border: 2px solid #A594F9 !important;
         border-radius: 8px !important;
         display: flex !important;
         align-items: center !important;
+        /* 光らせる設定は削除 */
+        outline: none !important;
+        box-shadow: none !important;
     }
 
+    /* 虫眼鏡：絶対配置で強制的に「枠の右」に置く */
     #headerImage {
         position: absolute !important;
         right: 10px !important;
+        /* 右から10pxの位置に固定 */
         top: 50% !important;
         transform: translateY(-50%) !important;
+        /* 上下ど真ん中 */
         width: 20px !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        z-index: 10 !important;
     }
 
+    /* 入力欄：虫眼鏡の下に文字が潜り込まないようにする */
     #headerSearchText {
         width: 100% !important;
+        height: 100% !important;
         padding: 0 40px 0 10px !important;
+        /* 右側に虫眼鏡分のスペースを確保 */
         font-size: 16px !important;
+        background: transparent !important;
         border: none !important;
+        outline: none !important;
     }
 
-    /* --- 2. メニュー項目：枠の重なりを解消 --- */
-    .list-item {
-        margin: 100px auto !important;
-        /* 以前の大きな余白を維持 */
-    }
 
-    /* 親要素の枠線を消して「label」側だけに線を残す */
-    .arow-list {
-        border: none !important;
-        background-color: transparent !important;
-    }
-
-    nav ul li a,
-    .arow-list label {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        padding: 19px 40px 15px 40px !important;
-        border: 1px solid #000000 !important;
-        /* ここだけで線を引く */
-        background-color: #A594F9 !important;
-        line-height: 1 !important;
-    }
-
-    nav ul li a img,
-    .arow-list label img {
-        width: 20px !important;
-        margin-right: 8px !important;
-        display: inline-block !important;
-    }
-
-    /* --- 3. プルダウン（ブロスタ） --- */
-    #child-lists li {
-        height: 0 !important;
-        overflow: hidden !important;
-        transition: all 0.5s !important;
-    }
-
-    #product-list:checked~#child-lists li {
-        height: 50px !important;
-        border: 1px solid #000000 !important;
-        border-top: none !important;
-        /* 親との境目の線を消してスッキリさせる */
-    }
-
-    /* --- 4. 広場・新着記事（前回の正解を維持） --- */
+    /* =========================================
+       2. トップ画像（ナナナの広場：2つ目のやつ）
+       ========================================= */
     #hero {
+        /* 背景画像を大きくする */
         width: 94% !important;
         margin: 20px auto !important;
-        min-height: 250px !important;
         height: auto !important;
+        /* 高さを固定しない */
+        min-height: 250px !important;
+        /* 最低でもこれくらい大きく！ */
+
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        background-size: cover !important;
         border-radius: 15px !important;
+
+        /* 背景画像の設定（CSSで画像を指定している場合） */
+        background-size: cover !important;
+        background-position: center !important;
     }
 
+    /* 中の文字「ナナナの広場^_^」 */
+    .hero_inner p.pop {
+        font-size: 24px !important;
+        /* スマホで見やすい大きさ */
+        width: 90% !important;
+        text-align: center !important;
+        color: #000000 !important;
+        margin: 0 !important;
+    }
+
+
+    /* =========================================
+       3. 新着記事（シーズン42...）：ここを絶対直す
+       ========================================= */
+    /* 背景部分（subhero）を大きくする */
     .subhero {
         width: 100% !important;
-        min-height: 180px !important;
         height: auto !important;
+        /* 文字数に合わせて伸びるようにする */
+        min-height: 180px !important;
+        /* 背景画像の高さを確保 */
+        padding: 15px !important;
+        /* 中の文字が端に行かないように */
+
         display: flex !important;
         flex-direction: column !important;
+        /* 縦並び */
         justify-content: center !important;
         align-items: center !important;
+
         background-size: cover !important;
+        background-position: center !important;
+        border-radius: 10px !important;
     }
 
+    /* 文字部分（catch-copy） */
     .subhero .catch-copy {
         font-size: 15px !important;
+        /* 画像からはみ出さないサイズ */
+        line-height: 1.5 !important;
         width: 100% !important;
+        /* 親枠いっぱいまで使う */
+        margin: 0 !important;
+
+        /* 改行の設定 */
+        white-space: normal !important;
+        /* 勝手に改行させる */
+        word-wrap: break-word !important;
         text-align: center !important;
+
+        color: #000000 !important;
+    }
+
+    /* 日付の部分 */
+    .subhero .date {
+        margin-top: 10px !important;
+        font-size: 12px !important;
+        color: #000000 !important;
+        text-align: right !important;
+        width: 100% !important;
     }
 }
