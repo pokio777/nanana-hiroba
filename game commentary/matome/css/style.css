@@ -410,17 +410,16 @@ table td {
     padding: 20px;
 }
 
-/* --- スマホ・タブレット向け：横揺れ防止と連動の最適化 --- */
 @media screen and (max-width: 768px) {
 
-    /* 1. 画面全体の横揺れを物理的に止める */
+    /* --- 1. 画面全体の横揺れ防止 --- */
     html,
     body {
         overflow-x: hidden !important;
         width: 100% !important;
     }
 
-    /* 2. メニュー・検索窓（完璧な状態を維持） */
+    /* --- 2. 検索窓（完璧な状態を維持） --- */
     #box {
         position: relative !important;
         top: 0 !important;
@@ -434,26 +433,33 @@ table td {
         align-items: center !important;
     }
 
+    #headerImage {
+        position: absolute !important;
+        right: 10px !important;
+        left: auto !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        width: 20px !important;
+    }
+
     #headerSearchText {
         width: 100% !important;
         padding: 0 40px 0 10px !important;
         line-height: normal !important;
     }
 
-    #headerImage {
-        position: absolute !important;
-        right: 10px !important;
-        left: auto !important;
-        /* index.htmlの指定を解除 */
-        top: 50% !important;
-        transform: translateY(-50%) !important;
-        width: 20px !important;
-    }
-
+    /* --- 3. ハンバーガーメニュー内（枠線太さバグ修正） --- */
     .list-item {
         margin: 100px auto !important;
     }
 
+    /* 「ゲーム解説」を囲む親の枠線をリセット（二重枠防止） */
+    .arow-list {
+        border: none !important;
+        background-color: transparent !important;
+    }
+
+    /* ホーム、お問い合わせ、ゲーム解説(label)を 1px で統一 */
     nav ul li a,
     .arow-list label {
         display: flex !important;
@@ -461,55 +467,89 @@ table td {
         justify-content: center !important;
         padding: 19px 40px 15px 40px !important;
         border: 1px solid #000000 !important;
+        /* ★ここを1pxに徹底固定 */
         background-color: #A594F9 !important;
+        line-height: 1 !important;
+        cursor: pointer !important;
     }
 
-    /* 3. ナナナの広場（帯の基準） */
+    /* 矢印の位置調整（1px枠に合わせて微調整） */
+    .arow-list::after {
+        left: 85% !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+
+    /* --- 4. プルダウン（ブロスタ）の枠線修正 --- */
+    #child-lists li {
+        height: 0 !important;
+        overflow: hidden !important;
+        transition: all 0.5s !important;
+        border: none !important;
+        background-color: #A594F9 !important;
+        margin-top: -1px !important;
+        /* 上の枠線と重ねて太くなるのを防ぐ */
+    }
+
+    /* 「ブロスタ」が開いた時 */
+    #product-list:checked~#child-lists li {
+        height: 50px !important;
+        border: 1px solid #000000 !important;
+        /* ★ここも 1px で統一 */
+    }
+
+    /* 中のリンクの二重枠を防止 */
+    #child-lists li a {
+        padding: 0 !important;
+        height: 100% !important;
+        width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border: none !important;
+        /* ★aタグの枠線を消す */
+        background-color: transparent !important;
+    }
+
+    /* --- 5. ナナナの広場と記事（連動維持） --- */
     #hero {
         width: 90% !important;
-        /* 広場の幅を90%に固定 */
         margin: 20px auto !important;
         height: 180px !important;
         border-radius: 15px !important;
+        position: relative !important;
+        overflow: hidden !important;
     }
 
     #hero::before {
         width: 100% !important;
-        /* 広場の幅=紫の帯の幅 */
     }
 
     .hero_inner p {
         font-size: 20px !important;
-        /* 文字のはみ出し防止 */
         padding: 0 10px !important;
     }
 
-    /* 4. コンテンツ全体の余白（バグ修正） */
     main,
     footer {
         padding: 40px 0 !important;
-        /* 巨大な100px余白を解除して横揺れ防止 */
         width: 100% !important;
     }
 
-    /* 5. テーブル（横揺れの最大の原因を修正） */
+    /* 表の幅を広場の帯(90%)と連動 */
     table {
         width: 90% !important;
-        /* 広場の帯と同じ幅(90%)にする */
         max-width: none !important;
         margin: 20px auto !important;
         table-layout: fixed !important;
-        /* セルが突き抜けないように固定 */
     }
 
     table th,
     table td {
         padding: 10px 5px !important;
         font-size: 14px !important;
-        word-wrap: break-word !important;
     }
 
-    /* 画像のはみ出し防止 */
     footer img {
         max-width: 90% !important;
         height: auto !important;
