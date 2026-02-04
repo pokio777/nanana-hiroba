@@ -361,135 +361,150 @@ main .date {
 
 @media screen and (max-width: 768px) {
 
-    /* =========================================
-       1. 検索キーワード入力（原点回帰）
-       ========================================= */
+    /* --- 1. 検索窓・メニュー（完璧な状態を維持） --- */
     #box {
         position: relative !important;
-        /* 虫眼鏡の「家」の基準 */
+        top: 0 !important;
         width: 90% !important;
         height: 40px !important;
-        /* 高さを少し抑えてスッキリさせる */
-        margin: 0 auto !important;
+        margin: 0 auto 20px auto !important;
         background-color: #ffffff !important;
         border: 2px solid #A594F9 !important;
         border-radius: 8px !important;
         display: flex !important;
         align-items: center !important;
-        /* 光らせる設定は削除 */
-        outline: none !important;
-        box-shadow: none !important;
     }
 
-    /* 虫眼鏡：絶対配置で強制的に「枠の右」に置く */
     #headerImage {
         position: absolute !important;
         right: 10px !important;
-        /* 右から10pxの位置に固定 */
         top: 50% !important;
         transform: translateY(-50%) !important;
-        /* 上下ど真ん中 */
         width: 20px !important;
-        height: auto !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        z-index: 10 !important;
     }
 
-    /* 入力欄：虫眼鏡の下に文字が潜り込まないようにする */
     #headerSearchText {
         width: 100% !important;
-        height: 100% !important;
         padding: 0 40px 0 10px !important;
-        /* 右側に虫眼鏡分のスペースを確保 */
         font-size: 16px !important;
-        background: transparent !important;
         border: none !important;
-        outline: none !important;
+        background: transparent !important;
     }
 
+    .list-item {
+        margin: 100px auto !important;
+    }
 
-    /* =========================================
-       2. トップ画像（ナナナの広場：2つ目のやつ）
-       ========================================= */
-    #hero {
-        /* 背景画像を大きくする */
-        width: 94% !important;
-        margin: 20px auto !important;
-        height: auto !important;
-        /* 高さを固定しない */
-        min-height: 250px !important;
-        /* 最低でもこれくらい大きく！ */
+    .arow-list {
+        border: none !important;
+        background-color: transparent !important;
+    }
 
+    nav ul li a,
+    .arow-list label {
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        border-radius: 15px !important;
-
-        /* 背景画像の設定（CSSで画像を指定している場合） */
-        background-size: cover !important;
-        background-position: center !important;
+        padding: 19px 40px 15px 40px !important;
+        border: 1px solid #000000 !important;
+        background-color: #A594F9 !important;
+        line-height: 1 !important;
     }
 
-    /* 中の文字「ナナナの広場^_^」 */
-    .hero_inner p.pop {
-        font-size: 24px !important;
-        /* スマホで見やすい大きさ */
+    #child-lists li {
+        height: 0 !important;
+        overflow: hidden !important;
+        transition: all 0.5s !important;
+        border: none !important;
+        margin-top: -1px !important;
+    }
+
+    #product-list:checked~#child-lists li {
+        height: 50px !important;
+        border: 1px solid #000000 !important;
+    }
+
+    /* --- 2. 広場(#hero)の「紫の帯」の設定 --- */
+    #hero {
         width: 90% !important;
-        text-align: center !important;
-        color: #000000 !important;
-        margin: 0 !important;
+        /* 画面全体の90%幅に固定 */
+        margin: 20px auto !important;
+        min-height: 250px !important;
+        height: auto !important;
+        border-radius: 15px !important;
+        position: relative !important;
+        overflow: hidden !important;
+        background-size: cover !important;
     }
 
+    /* 紫の帯：広場の幅(100%)と完全に一致させる */
+    #hero::before {
+        content: "" !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        background-color: #A594F9 !important;
+        opacity: 0.5 !important;
+        z-index: 1 !important;
+    }
 
-    /* =========================================
-       3. 新着記事（シーズン42...）：ここを絶対直す
-       ========================================= */
-    /* 背景部分（subhero）を大きくする */
+    /* --- 3. 新着記事：広場の「紫の帯」の幅と完全連動 --- */
+    footer ul {
+        width: 100% !important;
+        /* 親枠いっぱいに広げる */
+        padding: 0 !important;
+    }
+
+    footer li {
+        /* ★広場(#hero)と同じ 90% にすることで、紫の帯の端と黒枠が垂直に揃う */
+        width: 90% !important;
+        margin: 0 auto 30px auto !important;
+        padding: 0 !important;
+        border: 1px solid #000000 !important;
+        /* メニューと同じ細い黒枠 */
+        border-radius: 10px !important;
+        overflow: hidden !important;
+        background-color: #fff !important;
+        list-style: none !important;
+    }
+
+    /* 画像エリアの設定（見切れ防止） */
     .subhero {
         width: 100% !important;
-        height: auto !important;
-        /* 文字数に合わせて伸びるようにする */
-        min-height: 180px !important;
-        /* 背景画像の高さを確保 */
-        padding: 15px !important;
-        /* 中の文字が端に行かないように */
-
+        height: 200px !important;
         display: flex !important;
         flex-direction: column !important;
-        /* 縦並び */
         justify-content: center !important;
         align-items: center !important;
-
-        background-size: cover !important;
+        background-size: 100% 100% !important;
+        /* ★画像を枠の幅に強制的に合わせる */
         background-position: center !important;
-        border-radius: 10px !important;
+        background-repeat: no-repeat !important;
+        position: relative !important;
     }
 
-    /* 文字部分（catch-copy） */
+    /* 文字の位置とスタイル */
     .subhero .catch-copy {
-        font-size: 15px !important;
-        /* 画像からはみ出さないサイズ */
-        line-height: 1.5 !important;
-        width: 100% !important;
-        /* 親枠いっぱいまで使う */
-        margin: 0 !important;
-
-        /* 改行の設定 */
-        white-space: normal !important;
-        /* 勝手に改行させる */
-        word-wrap: break-word !important;
+        position: relative !important;
+        top: 0 !important;
+        left: 0 !important;
+        transform: none !important;
+        font-size: 16px !important;
+        font-weight: bold !important;
+        width: 90% !important;
         text-align: center !important;
-
-        color: #000000 !important;
+        z-index: 2 !important;
+        color: #000 !important;
     }
 
-    /* 日付の部分 */
-    .subhero .date {
-        margin-top: 10px !important;
-        font-size: 12px !important;
-        color: #000000 !important;
-        text-align: right !important;
-        width: 100% !important;
+    /* 日付 */
+    footer .date {
+        position: absolute !important;
+        bottom: 10px !important;
+        right: 15px !important;
+        font-size: 11px !important;
+        z-index: 3 !important;
     }
 }
