@@ -410,42 +410,108 @@ table td {
     padding: 20px;
 }
 
-@media only screen and (max-width: 480px) {
+/* --- スマホ・タブレット向け：横揺れ防止と連動の最適化 --- */
+@media screen and (max-width: 768px) {
+
+    /* 1. 画面全体の横揺れを物理的に止める */
+    html,
+    body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+    }
+
+    /* 2. メニュー・検索窓（完璧な状態を維持） */
+    #box {
+        position: relative !important;
+        top: 0 !important;
+        width: 90% !important;
+        height: 40px !important;
+        margin: 0 auto 20px auto !important;
+        background-color: #ffffff !important;
+        border: 2px solid #A594F9 !important;
+        border-radius: 8px !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+
+    #headerSearchText {
+        width: 100% !important;
+        padding: 0 40px 0 10px !important;
+        line-height: normal !important;
+    }
+
+    #headerImage {
+        position: absolute !important;
+        right: 10px !important;
+        left: auto !important;
+        /* index.htmlの指定を解除 */
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        width: 20px !important;
+    }
+
+    .list-item {
+        margin: 100px auto !important;
+    }
+
+    nav ul li a,
+    .arow-list label {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 19px 40px 15px 40px !important;
+        border: 1px solid #000000 !important;
+        background-color: #A594F9 !important;
+    }
+
+    /* 3. ナナナの広場（帯の基準） */
     #hero {
-        background-image: url(../../images/Screenshot_20250924-164000.png);
-        background-position: center;
-        background-size: cover;
-        height: 154px;
-        display: flex;
-        align-items: center;
-        margin-bottom: 90px;
-        overflow: hidden;
-        position: relative;
+        width: 90% !important;
+        /* 広場の幅を90%に固定 */
+        margin: 20px auto !important;
+        height: 180px !important;
+        border-radius: 15px !important;
+    }
+
+    #hero::before {
+        width: 100% !important;
+        /* 広場の幅=紫の帯の幅 */
     }
 
     .hero_inner p {
-        font-family: "Mochiy Pop P One", sans-serif;
-        font-size: 29.5px;
-        font-weight: 250;
-    }
-}
-
-@media only screen and (min-width: 481px) and (max-width: 768px) {
-    #hero {
-        background-image: url(../../images/Screenshot_20250924-164000.png);
-        background-position: center;
-        background-size: cover;
-        height: 154px;
-        display: flex;
-        align-items: center;
-        margin-bottom: 90px;
-        overflow: hidden;
-        position: relative;
+        font-size: 20px !important;
+        /* 文字のはみ出し防止 */
+        padding: 0 10px !important;
     }
 
-    .hero_inner p {
-        font-family: "Mochiy Pop P One", sans-serif;
-        font-size: 29.5px;
-        font-weight: 250;
+    /* 4. コンテンツ全体の余白（バグ修正） */
+    main,
+    footer {
+        padding: 40px 0 !important;
+        /* 巨大な100px余白を解除して横揺れ防止 */
+        width: 100% !important;
+    }
+
+    /* 5. テーブル（横揺れの最大の原因を修正） */
+    table {
+        width: 90% !important;
+        /* 広場の帯と同じ幅(90%)にする */
+        max-width: none !important;
+        margin: 20px auto !important;
+        table-layout: fixed !important;
+        /* セルが突き抜けないように固定 */
+    }
+
+    table th,
+    table td {
+        padding: 10px 5px !important;
+        font-size: 14px !important;
+        word-wrap: break-word !important;
+    }
+
+    /* 画像のはみ出し防止 */
+    footer img {
+        max-width: 90% !important;
+        height: auto !important;
     }
 }
