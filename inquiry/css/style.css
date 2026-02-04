@@ -299,7 +299,7 @@ main input[type=submit] {
 
 @media screen and (max-width: 768px) {
 
-    /* --- 1. 検索窓（以前の数値を維持） --- */
+    /* --- 1. 検索窓 --- */
     #box {
         position: relative !important;
         top: 0 !important;
@@ -328,16 +328,16 @@ main input[type=submit] {
         border: none !important;
     }
 
-    /* --- 2. メニュー項目：以前と同じ「100px」の巨大な余白を復元 --- */
-    nav ul li {
-        margin-bottom: 0 !important;
-        /* 基本のliは詰め、list-itemで広げる */
-    }
-
-    /* 「ゲーム解説」の上下にある、あの大きな隙間を作ります */
+    /* --- 2. メニュー項目：枠の重なりを解消 --- */
     .list-item {
         margin: 100px auto !important;
-        /* あなたのコードにある100pxをスマホでも強制適用 */
+        /* 以前の大きな余白を維持 */
+    }
+
+    /* 親要素の枠線を消して「label」側だけに線を残す */
+    .arow-list {
+        border: none !important;
+        background-color: transparent !important;
     }
 
     nav ul li a,
@@ -346,8 +346,8 @@ main input[type=submit] {
         align-items: center !important;
         justify-content: center !important;
         padding: 19px 40px 15px 40px !important;
-        /* 元のパディングを維持 */
         border: 1px solid #000000 !important;
+        /* ここだけで線を引く */
         background-color: #A594F9 !important;
         line-height: 1 !important;
     }
@@ -359,7 +359,7 @@ main input[type=submit] {
         display: inline-block !important;
     }
 
-    /* --- 3. プルダウン（ブロスタ）：隙間を以前の動きに合わせる --- */
+    /* --- 3. プルダウン（ブロスタ） --- */
     #child-lists li {
         height: 0 !important;
         overflow: hidden !important;
@@ -368,12 +368,12 @@ main input[type=submit] {
 
     #product-list:checked~#child-lists li {
         height: 50px !important;
-        border-bottom: 1px solid #000000 !important;
-        margin-top: 0 !important;
-        /* ブロスタのすぐ下には余白を作らない */
+        border: 1px solid #000000 !important;
+        border-top: none !important;
+        /* 親との境目の線を消してスッキリさせる */
     }
 
-    /* --- 4. 広場・記事エリア（以前解決したコード） --- */
+    /* --- 4. 広場・新着記事（前回の正解を維持） --- */
     #hero {
         width: 94% !important;
         margin: 20px auto !important;
@@ -383,6 +383,7 @@ main input[type=submit] {
         align-items: center !important;
         justify-content: center !important;
         background-size: cover !important;
+        border-radius: 15px !important;
     }
 
     .subhero {
