@@ -361,7 +361,7 @@ main .date {
 
 @media screen and (max-width: 768px) {
 
-    /* --- 1. 検索窓・メニュー（完璧な状態を維持） --- */
+    /* --- 1. 検索窓（完璧な状態を維持） --- */
     #box {
         position: relative !important;
         top: 0 !important;
@@ -391,6 +391,7 @@ main .date {
         background: transparent !important;
     }
 
+    /* --- 2. ハンバーガーメニュー内（1px枠・宝物を維持） --- */
     .list-item {
         margin: 100px auto !important;
     }
@@ -400,6 +401,7 @@ main .date {
         background-color: transparent !important;
     }
 
+    /* メニュー項目のボタン設定 */
     nav ul li a,
     .arow-list label {
         display: flex !important;
@@ -409,13 +411,16 @@ main .date {
         border: 1px solid #000000 !important;
         background-color: #A594F9 !important;
         line-height: 1 !important;
+        cursor: pointer !important;
     }
 
+    /* 「ブロスタ」プルダウン部分 */
     #child-lists li {
         height: 0 !important;
         overflow: hidden !important;
         transition: all 0.5s !important;
         border: none !important;
+        background-color: #A594F9 !important;
         margin-top: -1px !important;
     }
 
@@ -424,10 +429,19 @@ main .date {
         border: 1px solid #000000 !important;
     }
 
-    /* --- 2. 広場(#hero)の「紫の帯」の設定 --- */
+    #child-lists li a {
+        padding: 0 !important;
+        height: 100% !important;
+        width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border: none !important;
+    }
+
+    /* --- 3. ナナナの広場（帯の基準） --- */
     #hero {
         width: 90% !important;
-        /* 画面全体の90%幅に固定 */
         margin: 20px auto !important;
         min-height: 250px !important;
         height: auto !important;
@@ -437,12 +451,9 @@ main .date {
         background-size: cover !important;
     }
 
-    /* 紫の帯：広場の幅(100%)と完全に一致させる */
     #hero::before {
         content: "" !important;
         position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
         width: 100% !important;
         height: 100% !important;
         background-color: #A594F9 !important;
@@ -450,27 +461,27 @@ main .date {
         z-index: 1 !important;
     }
 
-    /* --- 3. 新着記事：広場の「紫の帯」の幅と完全連動 --- */
+    /* --- 4. 新着記事（シーズン…を囲む細い黒枠を復活） --- */
     footer ul {
         width: 100% !important;
-        /* 親枠いっぱいに広げる */
         padding: 0 !important;
     }
 
     footer li {
-        /* ★広場(#hero)と同じ 90% にすることで、紫の帯の端と黒枠が垂直に揃う */
+        /* 広場の帯(90%)と幅を揃え、1pxの黒枠を復活 */
         width: 90% !important;
         margin: 0 auto 30px auto !important;
         padding: 0 !important;
         border: 1px solid #000000 !important;
-        /* メニューと同じ細い黒枠 */
+        /* ★ここを復活させました */
         border-radius: 10px !important;
         overflow: hidden !important;
         background-color: #fff !important;
         list-style: none !important;
+        position: relative !important;
     }
 
-    /* 画像エリアの設定（見切れ防止） */
+    /* 記事内の画像設定（見切れ防止） */
     .subhero {
         width: 100% !important;
         height: 200px !important;
@@ -479,13 +490,12 @@ main .date {
         justify-content: center !important;
         align-items: center !important;
         background-size: 100% 100% !important;
-        /* ★画像を枠の幅に強制的に合わせる */
         background-position: center !important;
         background-repeat: no-repeat !important;
         position: relative !important;
     }
 
-    /* 文字の位置とスタイル */
+    /* 記事内の文字（シーズン…） */
     .subhero .catch-copy {
         position: relative !important;
         top: 0 !important;
