@@ -361,7 +361,14 @@ main .date {
 
 @media screen and (max-width: 768px) {
 
-    /* --- 1. 検索窓（完璧な状態を維持） --- */
+    /* --- 1. 画面全体の横揺れ防止 --- */
+    html,
+    body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+    }
+
+    /* --- 2. 検索窓（完璧な状態を維持） --- */
     #box {
         position: relative !important;
         top: 0 !important;
@@ -378,6 +385,7 @@ main .date {
     #headerImage {
         position: absolute !important;
         right: 10px !important;
+        left: auto !important;
         top: 50% !important;
         transform: translateY(-50%) !important;
         width: 20px !important;
@@ -386,12 +394,10 @@ main .date {
     #headerSearchText {
         width: 100% !important;
         padding: 0 40px 0 10px !important;
-        font-size: 16px !important;
-        border: none !important;
-        background: transparent !important;
+        line-height: normal !important;
     }
 
-    /* --- 2. ハンバーガーメニュー内（1px枠・宝物を維持） --- */
+    /* --- 3. ハンバーガーメニュー内（宝物：1px枠・完全維持） --- */
     .list-item {
         margin: 100px auto !important;
     }
@@ -401,7 +407,7 @@ main .date {
         background-color: transparent !important;
     }
 
-    /* メニュー項目のボタン設定 */
+    /* ホーム、お問い合わせ、ゲーム解説(label)を 1px で統一 */
     nav ul li a,
     .arow-list label {
         display: flex !important;
@@ -414,7 +420,13 @@ main .date {
         cursor: pointer !important;
     }
 
-    /* 「ブロスタ」プルダウン部分 */
+    .arow-list::after {
+        left: 85% !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+
+    /* プルダウン（ブロスタ） */
     #child-lists li {
         height: 0 !important;
         overflow: hidden !important;
@@ -437,84 +449,71 @@ main .date {
         align-items: center !important;
         justify-content: center !important;
         border: none !important;
+        background-color: transparent !important;
     }
 
-    /* --- 3. ナナナの広場（帯の基準） --- */
+    /* --- 4. ナナナの広場（独立設定：90%） --- */
     #hero {
         width: 90% !important;
+        /* 広場は少し余裕を持たせた90% */
         margin: 20px auto !important;
-        min-height: 250px !important;
-        height: auto !important;
+        height: 180px !important;
         border-radius: 15px !important;
         position: relative !important;
         overflow: hidden !important;
-        background-size: cover !important;
     }
 
     #hero::before {
-        content: "" !important;
-        position: absolute !important;
         width: 100% !important;
-        height: 100% !important;
-        background-color: #A594F9 !important;
-        opacity: 0.5 !important;
-        z-index: 1 !important;
     }
 
-    /* --- 4. 新着記事（シーズン…を囲む細い黒枠を復活） --- */
+    .hero_inner p {
+        font-size: 20px !important;
+        padding: 0 10px !important;
+    }
+
+    /* --- 5. 記事の黒枠・本文（独立設定：ほぼ全幅 96%） --- */
+    main,
+    footer {
+        padding: 40px 0 !important;
+        width: 100% !important;
+    }
+
     footer ul {
         width: 100% !important;
         padding: 0 !important;
     }
 
+    /* ★ここが変更点：広場(90%)とは切り離して、ほぼ画面いっぱい(98%)にする */
     footer li {
-        /* 広場の帯(90%)と幅を揃え、1pxの黒枠を復活 */
-        width: 90% !important;
-        margin: 0 auto 30px auto !important;
-        padding: 0 !important;
+        width: 98% !important;
+        margin: 0 auto 20px auto !important;
+        /* 中央寄せ */
         border: 1px solid #000000 !important;
-        /* ★ここを復活させました */
-        border-radius: 10px !important;
-        overflow: hidden !important;
         background-color: #fff !important;
         list-style: none !important;
-        position: relative !important;
+        border-radius: 5px !important;
     }
 
-    /* 記事内の画像設定（見切れ防止） */
-    .subhero {
-        width: 100% !important;
-        height: 200px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        align-items: center !important;
-        background-size: 100% 100% !important;
-        background-position: center !important;
-        background-repeat: no-repeat !important;
-        position: relative !important;
+    /* 画像のはみ出し防止 */
+    footer img {
+        max-width: 98% !important;
+        /* 画像も枠に合わせて大きく */
+        height: auto !important;
     }
 
-    /* 記事内の文字（シーズン…） */
-    .subhero .catch-copy {
-        position: relative !important;
-        top: 0 !important;
-        left: 0 !important;
-        transform: none !important;
-        font-size: 16px !important;
-        font-weight: bold !important;
-        width: 90% !important;
-        text-align: center !important;
-        z-index: 2 !important;
-        color: #000 !important;
+    /* 表も記事枠に合わせて大きく */
+    table {
+        width: 98% !important;
+        max-width: none !important;
+        margin: 20px auto !important;
+        table-layout: fixed !important;
     }
 
-    /* 日付 */
-    footer .date {
-        position: absolute !important;
-        bottom: 10px !important;
-        right: 15px !important;
-        font-size: 11px !important;
-        z-index: 3 !important;
+    table th,
+    table td {
+        padding: 10px 5px !important;
+        font-size: 14px !important;
+        word-wrap: break-word !important;
     }
 }
