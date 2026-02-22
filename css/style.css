@@ -559,4 +559,14 @@ main .date {
         z-index: 2 !important;
         color: #000 !important;
     }
+
+    .subhero2 .catch-copy {
+        font-size: 16px !important;
+        /* ← ★ここを自由に変えてください */
+        font-weight: bold !important;
+        width: 90% !important;
+        text-align: center !important;
+        z-index: 2 !important;
+        color: #000 !important;
+    }
 }
