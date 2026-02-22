@@ -3,10 +3,14 @@ html {
     overflow-x: hidden;
 }
 
-main,
-footer {
+main {
     text-align: center;
     padding: 100px;
+}
+
+footer {
+    text-align: center;
+    padding-bottom: 100px;
 }
 
 #header {
@@ -31,11 +35,10 @@ footer {
 }
 
 #hero {
-    background-image: url(../images/grassland-dot3.jpg);
+    background-image: url(../../images/1771145939937.jpg);
     background-position: center;
     background-size: cover;
-    height: 440px;
-    border-radius: 30px;
+    height: 308px;
     display: flex;
     align-items: center;
     margin-bottom: 90px;
@@ -63,8 +66,9 @@ footer {
 }
 
 .hero_inner p {
-    font-size: 100px;
-    font-weight: 700;
+    font-family: "Mochiy Pop P One", sans-serif;
+    font-size: 59px;
+    font-weight: 500;
 }
 
 #header.active {
@@ -285,9 +289,8 @@ main {
     margin-bottom: 60px;
 }
 
-main .container {
-    max-width: 1080px;
-    width: 90%;
+main .toc-005 {
+    max-width: 700px;
     margin: 0 auto;
 }
 
@@ -304,91 +307,107 @@ main hr {
     width: 60px;
 }
 
-main ul {
-    max-width: 700px;
-    margin: 0 auto;
+.toc-005 {
+    margin-bottom: 30px;
+    border-radius: 3px;
+    background-color: #CDC1FF;
 }
 
-main li {
-    border: solid 1px #000000;
-    margin-bottom: 20px;
-    padding: 16px 24px;
-}
-
-.subhero {
-    background-image: url(../game\ commentary/images/Screenshot_20250924-164000.png);
-    background-position: center;
-    background-size: cover;
-    height: 308px;
+.toc-005 div {
     display: flex;
-    position: relative;
-}
-
-.subhero::before {
-    content: '';
-    width: 100%;
-    height: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 10px 0;
     background-color: #A594F9;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0.5;
-}
-
-.subhero .catch-copy {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: "Mochiy Pop P One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 34px;
     color: #000000;
+    font-weight: 600;
+    font-size: 1.1em;
 }
 
-.subhero2 {
-    background-image: url(../images/1771145939937.jpg);
-    background-position: center;
-    background-size: cover;
-    height: 308px;
-    display: flex;
-    position: relative;
-}
-
-.subhero2::before {
+.toc-005 div::before {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-right: 5px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 4H21V6H8V4ZM3 3.5H6V6.5H3V3.5ZM3 10.5H6V13.5H3V10.5ZM3 17.5H6V20.5H3V17.5ZM8 11H21V13H8V11ZM8 18H21V20H8V18Z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
     content: '';
-    width: 100%;
-    height: 100%;
-    background-color: #A594F9;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0.5;
 }
 
-.subhero2 .catch-copy {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: "Mochiy Pop P One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 34px;
-    color: #000000;
+.toc-005 ol {
+    list-style-type: decimal;
+    margin: 0;
+    overflow: hidden;
 }
 
-main .date {
-    position: absolute;
-    top: 85%;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #000000;
+.toc-005>ol {
+    padding: 1em 1em 1em 3em;
+}
+
+.toc-005 ol ol {
+    margin-top: 5px;
+    padding-left: 1.1em;
+}
+
+.toc-005 li {
+    padding: 5px 0;
+    font-weight: 600;
+}
+
+.toc-005 ol ol li {
     font-weight: 500;
-    font-size: x-large;
-    letter-spacing: 1px;
-    margin-bottom: 6px;
+    font-size: .9em;
+}
+
+.toc-005 a {
+    color: #333;
+    text-decoration: none;
+}
+
+footer {
+    display: grid;
+    gap: 50px;
+}
+
+footer h3 {
+    font-size: 28px;
+    font-weight: 350;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+footer h4 {
+    font-size: 24.5px;
+    font-weight: 350;
+    text-align: center;
+}
+
+footer {
+    font-size: 21px;
+    font-weight: 350;
+    text-align: center;
+}
+
+footer img {
+    margin: 12.5px auto;
+}
+
+table {
+    text-align: center;
+    width: 700px;
+    margin: 12.5px auto;
+}
+
+table th {
+    text-align: center;
+    border: 1px solid #000000;
+    padding: 20px;
+}
+
+table td {
+    text-align: center;
+    border: 1px solid #000000;
+    padding: 20px;
 }
 
 @media screen and (max-width: 768px) {
@@ -429,11 +448,12 @@ main .date {
         line-height: normal !important;
     }
 
-    /* --- 3. ハンバーガーメニュー内（宝物：1px枠・完全維持） --- */
+    /* --- 3. ハンバーガーメニュー内（枠線太さバグ修正） --- */
     .list-item {
         margin: 100px auto !important;
     }
 
+    /* 「ゲーム解説」を囲む親の枠線をリセット（二重枠防止） */
     .arow-list {
         border: none !important;
         background-color: transparent !important;
@@ -447,18 +467,20 @@ main .date {
         justify-content: center !important;
         padding: 19px 40px 15px 40px !important;
         border: 1px solid #000000 !important;
+        /* ★ここを1pxに徹底固定 */
         background-color: #A594F9 !important;
         line-height: 1 !important;
         cursor: pointer !important;
     }
 
+    /* 矢印の位置調整（1px枠に合わせて微調整） */
     .arow-list::after {
         left: 85% !important;
         top: 50% !important;
         transform: translateY(-50%) !important;
     }
 
-    /* プルダウン（ブロスタ） */
+    /* --- 4. プルダウン（ブロスタ）の枠線修正 --- */
     #child-lists li {
         height: 0 !important;
         overflow: hidden !important;
@@ -466,13 +488,17 @@ main .date {
         border: none !important;
         background-color: #A594F9 !important;
         margin-top: -1px !important;
+        /* 上の枠線と重ねて太くなるのを防ぐ */
     }
 
+    /* 「ブロスタ」が開いた時 */
     #product-list:checked~#child-lists li {
         height: 50px !important;
         border: 1px solid #000000 !important;
+        /* ★ここも 1px で統一 */
     }
 
+    /* 中のリンクの二重枠を防止 */
     #child-lists li a {
         padding: 0 !important;
         height: 100% !important;
@@ -481,13 +507,13 @@ main .date {
         align-items: center !important;
         justify-content: center !important;
         border: none !important;
+        /* ★aタグの枠線を消す */
         background-color: transparent !important;
     }
 
-    /* --- 4. ナナナの広場（独立設定：90%） --- */
+    /* --- 5. ナナナの広場と記事（連動維持） --- */
     #hero {
         width: 90% !important;
-        /* 広場は少し余裕を持たせた90% */
         margin: 20px auto !important;
         height: 180px !important;
         border-radius: 15px !important;
@@ -504,39 +530,15 @@ main .date {
         padding: 0 10px !important;
     }
 
-    /* --- 5. 記事の黒枠・本文（独立設定：ほぼ全幅 96%） --- */
     main,
     footer {
         padding: 40px 0 !important;
         width: 100% !important;
     }
 
-    footer ul {
-        width: 100% !important;
-        padding: 0 !important;
-    }
-
-    /* ★ここが変更点：広場(90%)とは切り離して、ほぼ画面いっぱい(98%)にする */
-    footer li {
-        width: 98% !important;
-        margin: 0 auto 20px auto !important;
-        /* 中央寄せ */
-        border: 1px solid #000000 !important;
-        background-color: #fff !important;
-        list-style: none !important;
-        border-radius: 5px !important;
-    }
-
-    /* 画像のはみ出し防止 */
-    footer img {
-        max-width: 98% !important;
-        /* 画像も枠に合わせて大きく */
-        height: auto !important;
-    }
-
-    /* 表も記事枠に合わせて大きく */
+    /* 表の幅を広場の帯(90%)と連動 */
     table {
-        width: 98% !important;
+        width: 90% !important;
         max-width: none !important;
         margin: 20px auto !important;
         table-layout: fixed !important;
@@ -546,17 +548,10 @@ main .date {
     table td {
         padding: 10px 5px !important;
         font-size: 14px !important;
-        word-wrap: break-word !important;
     }
 
-    /* 記事内の文字（シーズン…） */
-    .subhero .catch-copy {
-        font-size: 16px !important;
-        /* ← ★ここを自由に変えてください */
-        font-weight: bold !important;
-        width: 90% !important;
-        text-align: center !important;
-        z-index: 2 !important;
-        color: #000 !important;
+    footer img {
+        max-width: 90% !important;
+        height: auto !important;
     }
 }
