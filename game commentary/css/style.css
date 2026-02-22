@@ -560,4 +560,22 @@ footer .date {
         width: 100% !important;
         text-align: center !important;
     }
+
+    .subhero2 {
+        width: 100% !important;
+        min-height: 180px !important;
+        height: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        background-size: cover !important;
+        border-radius: 10px !important;
+    }
+
+    .subhero2 .catch-copy {
+        font-size: 15px !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
 }
