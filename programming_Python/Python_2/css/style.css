@@ -758,21 +758,16 @@ main h4 {
         line-height: 1.4 !important;
     }
 
-}
-
-@media screen and (max-width: 768px) {
-
-    /* 広告と下の白い背景の間に隙間を作る */
+    /* 3. 広告と、その下の白い四角を切り離す */
     footer {
-        margin-top: 70px !important;
-        /* 広告（footer）の上の外側に空白を作る */
-        padding-top: 30px !important;
-        /* 広告自体の上の内側に少し余裕を作る */
+        margin-bottom: 80px !important;
+        /* 広告の下に隙間を作る */
+        display: block !important;
     }
 
-    /* 広告内のスクリプト要素などが原因で隙間が消えないよう調整 */
-    footer div,
-    footer ins {
-        margin-top: 20px !important;
+    /* 下の白い四角（コピーライト）をさらに押し下げる */
+    small {
+        margin-top: 50px !important;
+        display: flex !important;
     }
 }
