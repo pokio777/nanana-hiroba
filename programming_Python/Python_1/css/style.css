@@ -769,12 +769,21 @@ main h4 {
         display: block !important;
     }
 
-    /* 3. 広告とフッターの間にしっかり余白（60px）を作る */
-    main,
+}
+
+@media screen and (max-width: 768px) {
+
+    /* 広告と下の白い背景の間に隙間を作る */
     footer {
-        padding: 40px 0 !important;
-        width: 100% !important;
-        margin-top: 60px !important;
-        /* 広告とくっつかないように広めに設定 */
+        margin-top: 70px !important;
+        /* 広告（footer）の上の外側に空白を作る */
+        padding-top: 30px !important;
+        /* 広告自体の上の内側に少し余裕を作る */
+    }
+
+    /* 広告内のスクリプト要素などが原因で隙間が消えないよう調整 */
+    footer div,
+    footer ins {
+        margin-top: 20px !important;
     }
 }
