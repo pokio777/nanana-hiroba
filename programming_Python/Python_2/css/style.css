@@ -541,11 +541,6 @@ table td {
         height: auto !important;
     }
 
-    /* フッター（白い四角の部分）の上に余白を作る */
-    footer {
-        margin-top: 30px;
-        /* ここを書き足す */
-    }
 }
 
 /* --- 既存のスタイル（ここまで） --- */
@@ -749,5 +744,26 @@ main h4 {
         padding-left: 15px;
         margin-left: 20px !important;
         margin-right: 20px !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* --- 既存のスマホ用設定はそのまま維持 --- */
+
+    /* 1. 一番上のタイトル（0円...）の文字サイズをスマホ向けに最適化 */
+    .hero_inner p {
+        font-size: 24px !important;
+        /* 59pxから、スマホで1〜2行に収まるサイズに調整 */
+        padding: 0 15px !important;
+        line-height: 1.4 !important;
+    }
+
+    /* 3. 広告とフッターの間にしっかり余白（60px）を作る */
+    main,
+    footer {
+        padding: 40px 0 !important;
+        width: 100% !important;
+        margin-top: 60px !important;
+        /* 広告とくっつかないように広めに設定 */
     }
 }
