@@ -540,6 +540,12 @@ table td {
         max-width: 90% !important;
         height: auto !important;
     }
+
+    /* フッター（白い四角の部分）の上に余白を作る */
+    footer {
+        margin-top: 30px;
+        /* ここを書き足す */
+    }
 }
 
 /* --- 既存のスタイル（ここまで） --- */
