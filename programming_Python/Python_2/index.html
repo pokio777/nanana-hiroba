@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ナナナの広場^_^</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.2/destyle.css">
+
+  <link rel="stylesheet" href="./css/style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  　
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  　
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Mochiy+Pop+P+One&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
+  <header id="header">
+    <a href="../../index.html" class="logo pop">ナナナの広場^_^</a>
+    <div id="hmb">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <ul>
+        <form action="#" method="post">
+          <div id="box">
+            <input type="text" name="smp_text" placeholder="キーワードを入力" id="headerSearchText">
+            <input type="image" name="smp_name" src="images/download.png" alt="検索" id="headerImage">
+          </div>
+        </form>
+        <li><a href="../../index.html"><img src="images/icons8-ホーム-24.png"> ホーム</a></li>
+        <li>
+          <div class="list-item">
+            <div class="arow-list">
+              <label for="product-list">
+                <img src="images/icons8-programming-24.png"> プログラミング
+              </label>
+            </div>
+            <input type="checkbox" id="product-list" />
+            <ul id="child-lists">
+              <li class="child-link"><a href="../index.html" class="child-menu">Python</a></li>
+              <li class="child-link"><a href="" class="child-menu">Unreal Engine</a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="../../inquiry/index.html"><img src="images/icons8-お問い合わせ-24.png"> お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="hero" class="container">
+      <div class="hero_inner">
+        <p class="pop">【0円】 Python完全初心者の独学記録。一緒にゼロから始めませんか? -2-</p>
+      </div>
+    </section>
+    <h2>【0円】 Python完全初心者の独学記録。一緒にゼロから始めませんか? -2-</h2>
+    <hr>
+
+    <div class="profile-box">
+      <div class="author-info">
+        <img src="images/ナナナの広場.png" alt="p" class="author-img">
+        <p class="author-name">管理人・p</p>
+      </div>
+      <div class="profile-content">
+        <p class="profile-title">執筆者・pのプロフィール</p>
+        <ul>
+          <li>・Python独学中の初心者</li>
+          <li>・0円でプログラミング習得に挑戦中</li>
+          <li>・「ナナナの広場^_^」管理人。htmlとcssを独学で学び、このサイトを一人で作り上げた。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="toc-005">
+      <div>
+        目次
+      </div>
+      <ol>
+        <li>
+          <a href="#1">はじめに</a>
+        </li>
+        <li>
+          <a href="#2">-2- Pythonノック1から5の解説</a>
+          <ol>
+            <li><a href="#2.1">問題に出題された知識の確認</a></li>
+            <li><a href="#2.2">補足で解説</a></li>
+          </ol>
+        </li>
+        <li>
+          <a href="#3">今日のまとめ</a>
+        </li>
+      </ol>
+    </div>
+
+    <h3 id="1">1. はじめに</h3>
+    <p>
+      皆さん、こんにちは。 「ナナナの広場^_^」管理人のpです。
+      今回からさっそく、Pythonの基礎を学んでいこうと思います。前回お伝えした通り、サプーさんの「Python
+      100本ノック（毎日5本）」と、やすなりさんの「マリオ制作」を進めていく中で、初心者なりの疑問を交えながら、理解したことを解説していきます。
+    </p>
+    <ul>
+      <li>・Pythonの勉強をこれから始める初学者の方</li>
+      <li>・Pythonの勉強をしているけれど、上手く継続できない方</li>
+    </ul>
+    <p>
+      皆さんとこのブログを通して、一緒にPythonの勉強ができたら幸いです。実際、僕もPython初心者ですが、この記事を書きながら自分のスキルを高めていこうと思っています。
+    </p>
+
+    <h3 id="2">2. -2- Pythonノック1から5の解説</h3>
+    <p>
+      では、サプーさんの100本ノック第1問から第5問までに出題された知識を、一通り一緒に確認していきましょう。
+    </p>
+
+    <h4 id="2.1">2.1 問題に出題された知識の確認</h4>
+    <p>
+      Pythonのプログラムは、コードの上から下に向かって順番に実行されます。また、重要なのが「インデント」です。
+    </p>
+    <p>
+      文章の行頭に空白を挿入することをインデントと呼びますが、Pythonでは、基本的に「半角スペース4個分」を1つのコードのまとまり（ブロック）として扱います。これを正しく行わないと、コンピュータがコードの繋がりを理解できずエラーになってしまいます。
+    </p>
+
+    <p style="margin-top: 20px;">
+      今回のメインテーマは「型（かた）」です。Pythonにおける型とは、一言で説明すると<strong>「データの種類と、その振る舞いのルール」</strong>です。
+    </p>
+    <p>
+      例えば「10」というデータがあるとき、それが数値（計算に使うもの）なのか、それとも文字（そのまま表示するもの）なのかをコンピュータに教える必要があります。整数は「int型」、小数点がある場合は「float型」、文字は「str型」というラベルを貼って渡すことで、コンピュータが正しく処理できるようになるのです。
+    </p>
+
+    <div style="margin: 30px auto; max-width: 600px;">
+      <table>
+        <thead>
+          <tr style="background-color: #A594F9;">
+            <th>演算子</th>
+            <th>意味</th>
+            <th>例</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>+</td>
+            <td>足し算</td>
+            <td>5 + 2 → 7</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td>引き算</td>
+            <td>5 - 2 → 3</td>
+          </tr>
+          <tr>
+            <td>*</td>
+            <td>掛け算</td>
+            <td>5 * 2 → 10</td>
+          </tr>
+          <tr>
+            <td>/</td>
+            <td>割り算</td>
+            <td>5 / 2 → 2.5</td>
+          </tr>
+          <tr>
+            <td>//</td>
+            <td>割り算（整数のみ）</td>
+            <td>5 // 2 → 2</td>
+          </tr>
+          <tr>
+            <td>%</td>
+            <td>余り</td>
+            <td>5 % 2 → 1</td>
+          </tr>
+          <tr>
+            <td>**</td>
+            <td>べき乗</td>
+            <td>5 ** 2 → 25</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      また、<code>print()</code> 関数はカッコ内の内容を表示し、<code>type()</code> 関数は何型かを表示します。<code>#</code>
+      を使うと、プログラムに影響しない「コメント」を残すことができます。
+    </p>
+
+    <h4 id="2.2">2.2 補足で解説</h4>
+    <p>
+      補足として、僕自身も最初誤解していた「関数」について解説します。
+    </p>
+    <p>
+      基本的に関数は <code>関数名()</code> と書きますが、関数名はあくまで「何をするか」が書かれた「レシピ」です。そこに <code>()</code>
+      がつくことで初めて、そのレシピを使って料理を作る（＝プログラムを実行する）ことができるようになります。
+    </p>
+    <p>
+      つまり、<strong>カッコは関数に「動作」を吹き込むもの</strong>、というのが本質的な理解です。
+    </p>
+
+
+
+    <p>
+      また、変数の名前をつけるときは、サプーさんの動画のように <code>result_1</code> など、一目で中身がわかる名前にするのがおすすめです。初心者のうちから読みやすいコードを意識していきましょう！
+    </p>
+
+
+
+    <h3 id="3">3. 今日のまとめ</h3>
+    <p>
+      今回の学習内容を簡単にまとめました。
+    </p>
+    <ul>
+      <li>・Pythonは上から順に実行され、<strong>「インデント（空白4つ）」</strong>でコードをまとめる。</li>
+      <li>・データには<strong>「型（int, float, str）」</strong>があり、種類によってコンピュータの振る舞いが変わる。</li>
+      <li>・関数は<strong>「レシピ（名前）」と「実行スイッチ（カッコ）」</strong>の組み合わせで動く。</li>
+      <li>・変数の名前は <code>result_1</code> のように、<strong>中身がひと目でわかる名前</strong>をつける。</li>
+    </ul>
+    <p style="margin-top: 15px;">
+      基礎をしっかり理解することで、これからの100本ノックやゲーム制作がもっと楽しくなるはずです。もし間違いがあれば「お問い合わせ」から教えてくださいね。一緒に頑張りましょう！
+    </p>
+
+  </main>
+  <footer>
+    <script src="https://adm.shinobi.jp/s/817e25045d58ffb8f9edd44c0e3ede7c"></script>
+  </footer>
+  <script src="https://adm.shinobi.jp/s/8b5262e0b0a07d4da401c75aec6f4c1b"></script>
+  <script>
+    const hmbBtn = document.getElementById("hmb");
+    const header = document.getElementById("header");
+
+    hmbBtn.addEventListener("click", function () {
+      header.classList.toggle("active");
+    });
+  </script>
+
+  <p><small>&copy; 2025 ナナナの広場^_^.</small></p>
+
+</body>
+
+</html>
