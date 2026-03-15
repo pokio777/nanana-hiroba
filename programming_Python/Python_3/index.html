@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ナナナの広場^_^</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.2/destyle.css">
+
+  <link rel="stylesheet" href="./css/style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Mochiy+Pop+P+One&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
+  <header id="header">
+    <a href="../../index.html" class="logo pop">ナナナの広場^_^</a>
+    <div id="hmb">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <ul>
+        <form action="#" method="post">
+          <div id="box">
+            <input type="text" name="smp_text" placeholder="キーワードを入力" id="headerSearchText">
+            <input type="image" name="smp_name" src="images/download.png" alt="検索" id="headerImage">
+          </div>
+        </form>
+        <li><a href="../../index.html"><img src="images/icons8-ホーム-24.png"> ホーム</a></li>
+        <li>
+          <div class="list-item">
+            <div class="arow-list">
+              <label for="product-list">
+                <img src="images/icons8-programming-24.png"> プログラミング
+              </label>
+            </div>
+            <input type="checkbox" id="product-list" />
+            <ul id="child-lists">
+              <li class="child-link"><a href="../index.html" class="child-menu">Python</a></li>
+              <li class="child-link"><a href="" class="child-menu">Unreal Engine</a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="../../inquiry/index.html"><img src="images/icons8-お問い合わせ-24.png"> お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="hero" class="container">
+      <div class="hero_inner">
+        <p class="pop">【0円】 Python完全初心者の独学記録。一緒にゼロから始めませんか? -3-</p>
+      </div>
+    </section>
+    <h2>【0円】 Python完全初心者の独学記録。一緒にゼロから始めませんか? -3-</h2>
+    <hr>
+
+    <div class="profile-box">
+      <div class="author-info">
+        <img src="images/ナナナの広場.png" alt="p" class="author-img">
+        <p class="author-name">管理人・p</p>
+      </div>
+      <div class="profile-content">
+        <p class="profile-title">執筆者・pのプロフィール</p>
+        <ul>
+          <li>・Python独学中の初心者</li>
+          <li>・0円でプログラミング習得に挑戦中</li>
+          <li>・「ナナナの広場^_^」管理人。htmlとcssを独学で学び、このサイトを一人で作り上げた。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="toc-005">
+      <div>
+        目次
+      </div>
+      <ol>
+        <li>
+          <a href="#1">はじめに</a>
+        </li>
+        <li>
+          <a href="#2">Pythonノック6から10の解説</a>
+          <ol>
+            <li><a href="#2.1">問題に出題された知識の確認</a></li>
+            <li><a href="#2.2">補足で解説</a></li>
+          </ol>
+        </li>
+        <li>
+          <a href="#3">今日のまとめ</a>
+        </li>
+      </ol>
+    </div>
+
+    <h3 id="1">1. はじめに</h3>
+    <p>
+      皆さんこんにちは。「ナナナの広場の管理人」のpです。今回も「Python100本ノック」の解説をしていきます。この記事を特に読んでほしい方は、Pythonの勉強をこれから始める初学者の方や、上手く継続できない方です。一緒にスキルを高めていきましょう。
+    </p>
+
+    <h3 id="2">2. Pythonノック6から10の解説</h3>
+    <p>
+      学習の中で重要だと感じたコードの書き方や関数の使い方をまとめました。
+    </p>
+
+    <h4 id="2.1">2.1 問題に出題された知識の確認</h4>
+    <p><strong>・長いコードを見やすくするコツ</strong><br>
+      コード全体を `()` で囲んで演算子の前で改行するか、もしくは `\`（バックスラッシュ）を挟んで演算子の前で改行します。こうすることで、長いコードを二行に分けることができ、非常に見やすくなります。
+    </p>
+    <p><strong>・数値を丸めるround関数</strong><br>
+      `round()` 関数は小数点以下を丸めることができ、括弧の中に丸めたい値を入れます。Pythonでは「端数0.5」の扱いが独特ですので、後ほど詳しく解説します。
+    </p>
+    <p><strong>・コードを短く書く「拡張代入演算子」</strong><br>
+      変数に値を代入する際、`x = x + 100` を `x += 100` といったように簡略化して表記できるのが拡張代入演算子です。
+    </p>
+    <p><strong>・文字を置き換えるreplace関数</strong><br>
+      `文字列.replace("置換前の文字列", "置換後の文字列")` という書き方で特定の文字を置き換えます。文字を消去したい場合は、置換後の文字列を `""`（空文字）にしてください。
+    </p>
+
+    <h4 id="2.2">2.2 補足で解説</h4>
+    <p><strong>・端数の処理と「銀行丸め」について</strong><br>
+      Pythonの `round()`
+      では「銀行丸め（偶数への丸め）」が採用されています。端数がちょうど「5」の場合、結果が偶数になる方へ合わせる処理です（例：1250の十の位を丸めると1200になります）。第2引数で指定する桁数は、一の位を基準に小数方向は正の数、十の位方向は負の数で指定します。
+    </p>
+    <p><strong>・文字列フォーマットの種類</strong><br>
+      動画で使われていた `f"文字列{変数}文字列"` という「f文字列」は、直接変数を埋め込めるため最も推奨されます。他には `+` を使って結合する方法もありますが、数値を `str()` で変換する手間がかかります。
+    </p>
+
+    <h3 id="3">3. 今日のまとめ</h3>
+    <p>
+      今回は、コードを読みやすくする改行のコツ、Python特有の「銀行丸め」を行うround関数、記述を簡略化できる拡張代入演算子、そして便利なreplace関数やf文字列について解説しました。基礎的な内容ですが、効率的なコーディングには欠かせない知識です。次回も一歩ずつ進んでいきましょう！
+    </p>
+
+  </main>
+  <footer>
+    <script src="https://adm.shinobi.jp/s/817e25045d58ffb8f9edd44c0e3ede7c"></script>
+  </footer>
+  <script src="https://adm.shinobi.jp/s/8b5262e0b0a07d4da401c75aec6f4c1b"></script>
+  <script>
+    const hmbBtn = document.getElementById("hmb");
+    const header = document.getElementById("header");
+
+    hmbBtn.addEventListener("click", function () {
+      header.classList.toggle("active");
+    });
+  </script>
+
+  <p><small>&copy; 2025 ナナナの広場^_^.</small></p>
+
+</body>
+
+</html>
